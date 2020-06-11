@@ -50,7 +50,7 @@ function! s:defx_my_settings() abort
         \ defx#is_directory() ?
         \ defx#do_action('open_tree') :
         \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> o defx#do_action('call', 'DefxOpenView')
+  nnoremap <silent><buffer><expr> e defx#do_action('call', 'DefxOpenView')
 endfunction
 function! DefxOpenView(_)
   if defx#is_directory()
