@@ -11,6 +11,14 @@ vim ide 打造计划
 ,	|	指令前缀(leader)
 jk	|	回退命令模式
 
+### airline & buffers
+
+命令|	功能
+----|-------------------
+<space>[0-9]	|	跳转指定标签
+<spave>h		|	上一个标签
+<spave>l		|	下一个标签
+
 ### coc
 
 按键|	作用
@@ -23,7 +31,11 @@ gy	|	跳转引用
 按键	|	作用
 --------|-----------
 \-		|	打开目录
-hjkl	|	类似 coc-explorer
+nd		|	new directory
+nf		|	new file
+yy		|	copy file
+p		|	paste file
+hjkl	|	浏览目录
 e		|	打开但不进入文件
 t		|	open:tab
 
