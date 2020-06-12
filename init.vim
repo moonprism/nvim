@@ -3,8 +3,13 @@ set nu
 set cul
 set paste
 set tabstop=4
-set autoindent
+set smartindent
 let mapleader=","
+
+" aotosave & undo/redo
+set autowriteall
+set undofile
+set undodir=~/.vim/undodir
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -15,6 +20,7 @@ Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 colorscheme gruvbox
@@ -65,6 +71,7 @@ function! DefxOpenView(_)
     exec 'wincmd w'
   endif
 endfunction
+nmap <space>w :wincmd w<CR>
 
 " coc
 let g:coc_global_extensions = [
@@ -106,5 +113,14 @@ nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
 nmap <space>h :bp<CR>
 nmap <space>l :bn<CR>
+
+" gitgutter
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghp <Plug>(GitGutterPreviewHunk)
 
 let g:NERDSpaceDelims=1
