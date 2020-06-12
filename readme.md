@@ -56,9 +56,10 @@ vim ide 打造计划
 `ghu`	|	git undo
 `ghp`	|	git preview
 
-### comment
+### others
 
 按键	|	作用
 --------|-----------
 `,cc`	|	注释
+`,t`	|	翻译
 

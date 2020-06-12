@@ -1,7 +1,6 @@
 set nocompatible
 set nu
 set cul
-set paste
 set tabstop=4
 set smartindent
 let mapleader=","
@@ -79,7 +78,10 @@ let g:coc_global_extensions = [
       \'coc-html',
       \'coc-css',
       \'coc-json',
+      \'coc-go',
+      \'coc-translator',
       \'coc-markdownlint']
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -126,3 +128,7 @@ nmap ghu <Plug>(GitGutterUndoHunk)
 nmap ghp <Plug>(GitGutterPreviewHunk)
 
 let g:NERDSpaceDelims=1
+
+" translator
+nmap <Leader>t <Plug>(coc-translator-p)
+vmap <Leader>t <Plug>(coc-translator-pv)
