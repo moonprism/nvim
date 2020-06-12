@@ -111,8 +111,10 @@ nmap <space>6 <Plug>AirlineSelectTab6
 nmap <space>7 <Plug>AirlineSelectTab7
 nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
-nmap <space>h :bp<CR>
-nmap <space>l :bn<CR>
+nmap <space>h <Plug>AirlineSelectPrevTab
+nmap <space>l <Plug>AirlineSelectNextTab
+" todo airline 没有默认的close,这里需要写个函数才能处理好
+nmap <space>q :bd<CR><space>1-<space>w
 
 " gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
