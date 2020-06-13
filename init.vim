@@ -115,8 +115,7 @@ nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
 nmap <space>h <Plug>AirlineSelectPrevTab
 nmap <space>l <Plug>AirlineSelectNextTab
-" todo airline 没有默认的close,这里需要写个函数才能处理好
-nmap <space>q :bd<CR><space>1-<space>w
+nmap <space>q :bd<CR><space>1-<space>w<space>h
 
 " gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
@@ -126,6 +125,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 nmap ghp <Plug>(GitGutterPreviewHunk)
+:set updatetime=300
 
 let g:NERDSpaceDelims=1
 
