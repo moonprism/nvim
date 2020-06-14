@@ -113,9 +113,9 @@ nmap <space>6 <Plug>AirlineSelectTab6
 nmap <space>7 <Plug>AirlineSelectTab7
 nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
-nmap <space>h <Plug>AirlineSelectPrevTab
-nmap <space>l <Plug>AirlineSelectNextTab
-nmap <space>q :bd<CR><space>1-<space>w<space>h
+nmap <C-h> <Plug>AirlineSelectPrevTab
+nmap <C-l> <Plug>AirlineSelectNextTab
+nmap <space>q :bd<CR><space>1-<space>w<C-h>
 
 " gitgutter
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
