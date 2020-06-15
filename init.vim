@@ -1,3 +1,5 @@
+" -------------- oh my vim ~ --------------
+
 set nocompatible
 set nu
 set cul
@@ -6,16 +8,20 @@ set smartindent
 let mapleader=","
 
 " aotosave & undo/redo
+
 set autowriteall
 set undofile
 set undodir=~/.vim/undodir
+
+" Plug
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
-Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
@@ -23,7 +29,11 @@ Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 colorscheme gruvbox
+
+" -------------- plug config --------------
+
 " defx
+
 nmap - :Defx<CR>
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icon:filename',
@@ -37,7 +47,6 @@ call defx#custom#option('_', {
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
-  " Define mappings
   nnoremap <silent><buffer><expr> <CR>
         \ defx#is_directory() ?
         \ defx#do_action('open_tree') :
@@ -73,6 +82,7 @@ endfunction
 nmap <space>w :wincmd w<CR>
 
 " coc
+
 let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-html',
@@ -87,23 +97,41 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Lf
-let g:Lf_ShortcutF = "<C-p>"
-let g:Lf_WindowPosition = 'popup'
-let g:Lf_PreviewInPopup = 1
-let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
-let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+" fzf
 
-noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>")) <CR><CR>
-xnoremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual()) <CR><CR>
+nmap <C-p> :Files <CR>
+nmap <C-f> :Lines <CR>
+
+function! VisualText()
+    try
+        let x_save = @x
+        norm! gv"xy
+        return @x
+    finally
+        let @x = x_save
+    endtry
+endfunction
+
+xnoremap <C-f> :<C-U><C-R>=printf("Lines %s", VisualText()) <CR><CR>
+
+" todo rg 进程不会自动关闭导致cpu占用过高
+command! -bang -nargs=* Rg
+		\ call fzf#vim#grep(
+		\   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+		\   <bang>0 ? fzf#vim#with_preview('up:60%')
+		\           : fzf#vim#with_preview('right:50%:hidden', '?'),
+		\   <bang>0)
+xnoremap <C-g> :<C-U><C-R>=printf("Rg %s", escape(VisualText(), '()')) <CR><CR>
 
 " airline
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 
 " airline & buffer
+ 
 nmap <space>1 <Plug>AirlineSelectTab1
 nmap <space>2 <Plug>AirlineSelectTab2
 nmap <space>3 <Plug>AirlineSelectTab3
@@ -118,6 +146,7 @@ nmap <C-l> <Plug>AirlineSelectNextTab
 nmap <space>q :bd<CR><space>1-<space>w<C-h>
 
 " gitgutter
+
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
@@ -130,5 +159,6 @@ nmap ghp <Plug>(GitGutterPreviewHunk)
 let g:NERDSpaceDelims=1
 
 " translator
+
 nmap <Leader>t <Plug>(coc-translator-p)
 vmap <Leader>t <Plug>(coc-translator-pv)
