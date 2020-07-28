@@ -7,6 +7,10 @@ set tabstop=4
 set smartindent
 let mapleader=","
 
+inoremap jk <ESC>
+set hls
+nnoremap <backspace> :nohl<CR>
+
 " aotosave & undo/redo
 
 set autowriteall
@@ -26,6 +30,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'airblade/vim-gitgutter'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 colorscheme gruvbox
