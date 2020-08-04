@@ -1,8 +1,8 @@
-# neovim config
+# :heart: nvim
 
 vim ide 打造计划
 
-## 快捷键
+## 按键绑定
 
 ### normal 
 
@@ -19,8 +19,8 @@ vim ide 打造计划
 ----------------|-------------------
 `<space>[0-9]`	|	跳转指定标签
 `<space>q`		|	关闭标签
-`<C-h>`		|	上一个标签
-`<C-l>`		|	下一个标签
+`<C-h>`			|	上一个标签
+`<C-l>`			|	下一个标签
 
 ### coc
 
@@ -38,16 +38,16 @@ vim ide 打造计划
 `nf`		|	new file
 `yy`		|	copy file
 `p`			|	paste file
-`hjkl`		|	浏览目录
+`dd`		|	删除文件
+`hjkl`		|	浏览
 `t`			|	open:tab
 
-### leaderF
+### fzf
 
 按键	|	作用
 --------|-----------
 `<C-f>`	|	搜索buffer区指定词
 `<C-p>`	|	文件搜索
-`<C-g>`	|	rg搜索指定词
 
 ### git
 
