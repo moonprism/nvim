@@ -11,7 +11,7 @@ vim ide 打造计划
 `,`			|	指令前缀(leader)
 `jk`		|	回退命令模式
 `backspace`	|	关闭高亮搜索
-`<spave>w`	|	=`<C-w>w`，用于快速切换浏览与编辑区
+`<space>w`	|	=`<C-w>w`，用于快速切换浏览与编辑区
 
 ### airline & buffers
 

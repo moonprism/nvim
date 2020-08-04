@@ -1,2 +1,2 @@
-cp:
-	cp ./init.vim ~/.config/nvim/init.vim
+init:
+	ln -s ${PWD}/init.vim ~/.config/nvim/init.vim
