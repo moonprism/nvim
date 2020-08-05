@@ -1,66 +1,80 @@
 # :heart: nvim
 
-vim ide 打造计划
+![](https://kicoe-blog.oss-cn-shanghai.aliyuncs.com/eoyjbdQVQICwhKIwepkg.jpg)
 
-## 按键绑定
+vim ide 打造计划，自用 nvim 配置
 
-### normal 
+推荐字体：[Space Mono](https://fonts.google.com/specimen/Space+Mono)
 
-命令		|	功能
+## 快捷键
+
+### 基础
+
+Shortcut		|	Action
 ------------|-------------------
 `,`			|	指令前缀(leader)
 `jk`		|	回退命令模式
 `backspace`	|	关闭高亮搜索
-`<space>w`	|	=`<C-w>w`，用于快速切换浏览与编辑区
+`Space` + `w`	|	=`Ctrl` + `ww`，用于快速切换浏览与编辑区
 
-### airline & buffers
+### 标签页
 
-命令			|	功能
+[airline extensions tabline](https://github.com/vim-airline/vim-airline)
+
+Shortcut			|	Action
 ----------------|-------------------
-`<space>[0-9]`	|	跳转指定标签
-`<space>q`		|	关闭标签
-`<C-h>`			|	上一个标签
-`<C-l>`			|	下一个标签
+`Space` + `[0-9]`	|	跳转指定标签
+`Space` + `q`		|	关闭标签
+`Ctrl` + `h`		|	上一个标签
+`Ctrl` + `l`		|	下一个标签
 
-### coc
+### 跳转
 
-按键	|	作用
+[coc](https://github.com/neoclide/coc.nvim)
+
+Shortcut	|	Action
 --------|-----------
-`gd`	|	跳转定义
-`gy`	|	跳转引用
+`gd`	| 打开可跳转的定义列表
+`gy`	| 打开可跳转的引用列表
 
-### defx
+### 文件浏览
 
-按键		|	作用
+[defx](https://github.com/Shougo/defx.nvim)
+
+Shortcut		|	Action
 ------------|-----------
-`-`			|	打开文件树
-`nd`		|	new directory
-`nf`		|	new file
-`yy`		|	copy file
-`p`			|	paste file
-`dd`		|	删除文件
-`hjkl`		|	浏览
-`t`			|	open:tab
+`-`			|	在左侧分屏打开文件树
+`nd`		|	新建目录
+`nf`		|	新建文件
+`yy`		|	复制
+`p`			|	粘贴
+`dd`		|	删除
+`hjkl`	|	浏览，移动选择&打开关闭文件夹
+`t`			|	在新标签中打开文件
 
-### fzf
+### 搜索
 
-按键	|	作用
+[fzf](https://github.com/junegunn/fzf.vim)
+
+Shortcut	|	Action
 --------|-----------
-`<C-f>`	|	搜索buffer区指定词
-`<C-p>`	|	文件搜索
+`Ctrl` + `f`	|	搜索buffer区指定词
+`Ctrl` + `p`	|	文件搜索
+`Ctrl` + `g`  | 全局搜索
 
-### git
+### Git
 
-按键	|	作用
+[vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+
+Shortcut	|	Action
 --------|-----------
-`ghs`	|	?存储git hunk
-`ghu`	|	git undo
-`ghp`	|	git preview
+`ghs`	|	save: 存储代码块, ga
+`ghu`	|	undo: 重做, gco
+`ghp`	|	preview: 预览, gs
 
-### others
+### Others
 
-按键	|	作用
+Shortcut	|	Action
 --------|-----------
-`,cc`	|	注释
-`,t`	|	翻译
-
+`,cc`	|	注释, nerdcommenter
+`,t`	|	翻译, [coc-translator](https://github.com/voldikss/coc-translator)
