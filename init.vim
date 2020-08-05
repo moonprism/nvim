@@ -29,9 +29,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'airblade/vim-gitgutter'
-Plug 'mattn/emmet-vim'
 Plug 'mhartington/oceanic-next'
 Plug 'voldikss/vim-floaterm'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " For Neovim 0.1.3 and 0.1.4
@@ -185,3 +187,6 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 " floaterm
 
 let g:floaterm_keymap_toggle = '<C-t>'
+
+" motion
+map ; <Plug>(easymotion-prefix)

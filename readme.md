@@ -31,6 +31,14 @@ Shortcut			|	Action
 
 ### 跳转
 
+* [vim-easymotion](https://github.com/easymotion/vim-easymotion)
+
+Shortcut	|	Action
+--------|-----------
+`;s`	| 双向搜索跳转
+`;w`	| 向前
+`;b`	| 向后
+
 * [coc](https://github.com/neoclide/coc.nvim)
 
 Shortcut	|	Action
@@ -76,12 +84,23 @@ Shortcut	|	Action
 
 ### Others
 
+* [vim-surround](https://github.com/tpope/vim-surround)
+
+
+Shortcut	|	Action
+------------|-----------
+`ysiw"`		|	添加`""`包含当前字符串
+`cs"'`		|	替换包含字符为`''`
+`ds'`		|	删除包含字符`''`
+
 * [vim-floaterm](https://github.com/voldikss/vim-floaterm/)
 * [nerdcommenter](https://github.com/preservim/nerdcommenter)
 * [coc-translator](https://github.com/voldikss/coc-translator)
+* [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 
 Shortcut		|	Action
 ----------------|-----------
 `Ctrl` + `t`	|	终端
 `,` + `c Space`	|	注释
 `,` + `t`		|	翻译
+`Ctrl` + `n`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
