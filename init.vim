@@ -114,6 +114,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <Leader>r <Plug>(coc-rename)
 
 " fzf
 
@@ -169,9 +170,9 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
-nmap ghs <Plug>(GitGutterStageHunk)
-nmap ghu <Plug>(GitGutterUndoHunk)
-nmap ghp <Plug>(GitGutterPreviewHunk)
+nmap ga <Plug>(GitGutterStageHunk)
+nmap gco <Plug>(GitGutterUndoHunk)
+nmap gs <Plug>(GitGutterPreviewHunk)
 :set updatetime=300
 
 let g:NERDSpaceDelims=1

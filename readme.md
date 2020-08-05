@@ -2,9 +2,9 @@
 
 ![](https://kicoe-blog.oss-cn-shanghai.aliyuncs.com/eoyjbdQVQICwhKIwepkg.jpg)
 
-vim ide 打造计划，自用 nvim 配置
+vim IDE 打造计划，自用 neovim 配置
 
-推荐字体：[Space Mono](https://fonts.google.com/specimen/Space+Mono)
+终端字体：[Space Mono](https://fonts.google.com/specimen/Space+Mono)
 
 ## 快捷键
 
@@ -16,10 +16,11 @@ Shortcut		|	Action
 `jk`		|	回退命令模式
 `backspace`	|	关闭高亮搜索
 `Space` + `w`	|	=`Ctrl` + `ww`，用于快速切换浏览与编辑区
+`,` + `r`	|	重命名变量
 
 ### 标签页
 
-* [airline extensions tabline](https://github.com/vim-airline/vim-airline)
+* [airline_extensions_tabline](https://github.com/vim-airline/vim-airline)
 
 Shortcut			|	Action
 ----------------|-------------------
@@ -35,7 +36,7 @@ Shortcut			|	Action
 Shortcut	|	Action
 --------|-----------
 `gd`	| 打开可跳转的定义列表
-`gy`	| 打开可跳转的引用列表
+`gr`	| 打开可跳转的引用列表
 
 ### 文件浏览
 
@@ -69,9 +70,9 @@ Shortcut	|	Action
 
 Shortcut	|	Action
 --------|-----------
-`ghs`	|	save: 存储代码块, ga
-`ghu`	|	undo: 重做, gco
-`ghp`	|	preview: 预览, gs
+`ga`	|	save: 存储代码块
+`gco`	|	undo: 重做
+`gs`	|	preview: 预览
 
 ### Others
 
