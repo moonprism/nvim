@@ -19,18 +19,18 @@ Shortcut		|	Action
 
 ### 标签页
 
-[airline extensions tabline](https://github.com/vim-airline/vim-airline)
+* [airline extensions tabline](https://github.com/vim-airline/vim-airline)
 
 Shortcut			|	Action
 ----------------|-------------------
-`Space` + `[0-9]`	|	跳转指定标签
-`Space` + `q`		|	关闭标签
+`Space` + `[1-9]`	|	跳转指定标签
+`Space` + `0`		|	关闭标签
 `Ctrl` + `h`		|	上一个标签
 `Ctrl` + `l`		|	下一个标签
 
 ### 跳转
 
-[coc](https://github.com/neoclide/coc.nvim)
+* [coc](https://github.com/neoclide/coc.nvim)
 
 Shortcut	|	Action
 --------|-----------
@@ -39,13 +39,14 @@ Shortcut	|	Action
 
 ### 文件浏览
 
-[defx](https://github.com/Shougo/defx.nvim)
+* [defx](https://github.com/Shougo/defx.nvim)
 
 Shortcut		|	Action
 ------------|-----------
 `-`			|	在左侧分屏打开文件树
 `nd`		|	新建目录
 `nf`		|	新建文件
+`re`		|	重命名
 `yy`		|	复制
 `p`			|	粘贴
 `dd`		|	删除
@@ -54,7 +55,7 @@ Shortcut		|	Action
 
 ### 搜索
 
-[fzf](https://github.com/junegunn/fzf.vim)
+* [fzf](https://github.com/junegunn/fzf.vim)
 
 Shortcut	|	Action
 --------|-----------
@@ -64,7 +65,7 @@ Shortcut	|	Action
 
 ### Git
 
-[vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+* [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 
 Shortcut	|	Action
 --------|-----------
@@ -74,7 +75,12 @@ Shortcut	|	Action
 
 ### Others
 
-Shortcut	|	Action
---------|-----------
-`,cc`	|	注释, nerdcommenter
-`,t`	|	翻译, [coc-translator](https://github.com/voldikss/coc-translator)
+* [vim-floaterm](https://github.com/voldikss/vim-floaterm/)
+* [nerdcommenter](https://github.com/preservim/nerdcommenter)
+* [coc-translator](https://github.com/voldikss/coc-translator)
+
+Shortcut		|	Action
+----------------|-----------
+`Ctrl` + `t`	|	终端
+`,` + `c Space`	|	注释
+`,` + `t`		|	翻译

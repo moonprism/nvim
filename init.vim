@@ -31,6 +31,7 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'mattn/emmet-vim'
 Plug 'mhartington/oceanic-next'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 " For Neovim 0.1.3 and 0.1.4
@@ -81,6 +82,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> dd
         \ defx#do_action('remove')
+  nnoremap <silent><buffer><expr> re
+        \ defx#do_action('rename')
   nnoremap <silent><buffer><expr> yy
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> p
@@ -158,7 +161,7 @@ nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
 nmap <C-h> <Plug>AirlineSelectPrevTab
 nmap <C-l> <Plug>AirlineSelectNextTab
-nmap <space>q :bd<CR><space>1-<space>w<C-h>
+nmap <space>0 :bd<CR><space>1-<space>w<C-h>
 
 " gitgutter
 
@@ -177,3 +180,7 @@ let g:NERDSpaceDelims=1
 
 nmap <Leader>t <Plug>(coc-translator-p)
 vmap <Leader>t <Plug>(coc-translator-pv)
+
+" floaterm
+
+let g:floaterm_keymap_toggle = '<C-t>'
