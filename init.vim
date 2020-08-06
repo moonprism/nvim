@@ -174,7 +174,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 nmap ga <Plug>(GitGutterStageHunk)
 nmap gco <Plug>(GitGutterUndoHunk)
-nmap gs <Plug>(GitGutterPreviewHunk)
+nmap gd <Plug>(GitGutterPreviewHunk)
 :set updatetime=300
 
 let g:NERDSpaceDelims=1

@@ -36,14 +36,14 @@ Shortcut			|	Action
 Shortcut	|	Action
 --------|-----------
 `;s`	| 双向搜索跳转
-`;w`	| 向前
-`;b`	| 向后
+`;w`	| 向前跳转
+`;b`	| 向后跳转
 
 * [coc](https://github.com/neoclide/coc.nvim)
 
 Shortcut	|	Action
 --------|-----------
-`gd`	| 打开可跳转的定义列表
+`gd`	| 跳转定义
 `gr`	| 打开可跳转的引用列表
 
 ### 文件浏览
@@ -59,7 +59,7 @@ Shortcut		|	Action
 `yy`		|	复制
 `p`			|	粘贴
 `dd`		|	删除
-`hjkl`	|	浏览，移动选择&打开关闭文件夹
+`hjkl`		|	浏览，移动选择&打开关闭文件夹
 `t`			|	在新标签中打开文件
 
 ### 搜索
@@ -70,7 +70,7 @@ Shortcut	|	Action
 --------|-----------
 `Ctrl` + `f`	|	搜索buffer区指定词
 `Ctrl` + `p`	|	文件搜索
-`Ctrl` + `g`  | 全局搜索
+`Ctrl` + `g` 	|	全局搜索
 
 ### Git
 
@@ -80,7 +80,7 @@ Shortcut	|	Action
 --------|-----------
 `ga`	|	save: 存储代码块
 `gco`	|	undo: 重做
-`gs`	|	preview: 预览
+`gd`	|	preview: 预览
 
 ### Others
 
