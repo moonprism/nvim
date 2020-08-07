@@ -17,6 +17,7 @@ Shortcut		|	Action
 `backspace`	|	关闭高亮搜索
 `Space` + `w`	|	=`Ctrl` + `ww`，用于快速切换浏览与编辑区
 `,` + `r`	|	重命名变量
+`=`			|	于右侧打开ctags列表
 
 ### 标签页
 

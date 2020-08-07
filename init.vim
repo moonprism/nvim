@@ -7,6 +7,9 @@ set tabstop=4
 set smartindent
 let mapleader=","
 
+au FileType php,js,css set ts=4 sw=4 expandtab
+au FileType c,go setlocal tabstop=4
+
 inoremap jk <ESC>
 set hls
 nnoremap <backspace> :nohl<CR>
@@ -34,7 +37,11 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'majutsushi/tagbar'
 call plug#end()
+
+" tagbar
+nmap = :TagbarToggle<CR>
 
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
