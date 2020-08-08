@@ -7,8 +7,8 @@ set tabstop=4
 set smartindent
 let mapleader=","
 
-au FileType php,js,css set ts=4 sw=4 expandtab
-au FileType c,go setlocal tabstop=4
+au FileType php,javascript,css set ts=4 sw=4 expandtab
+au FileType c,go set tabstop=4
 
 inoremap jk <ESC>
 set hls
