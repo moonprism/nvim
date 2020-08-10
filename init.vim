@@ -20,6 +20,10 @@ set autowriteall
 set undofile
 set undodir=~/.vim/undodir
 
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 " Plug
 
 call plug#begin('~/.vim/plugged')
@@ -41,7 +45,7 @@ Plug 'majutsushi/tagbar'
 call plug#end()
 
 " tagbar
-nmap = :TagbarToggle<CR>
+nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
 
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -59,7 +63,7 @@ colorscheme OceanicNext
 
 " defx
 
-nmap - :Defx<CR>
+nmap - :Defx -winwidth=33<CR>
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icon:filename',
       \ 'winwidth': 35,
