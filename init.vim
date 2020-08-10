@@ -33,7 +33,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdcommenter'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'mhartington/oceanic-next'
@@ -42,10 +41,13 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
+Plug 'tyru/caw.vim'
 call plug#end()
 
-" tagbar
-nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
+" Theme
+
+syntax enable
+colorscheme OceanicNext
 
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -55,15 +57,24 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-" Theme
-syntax enable
-colorscheme OceanicNext
-
 " -------------- plug config --------------
+
+" vim-startify
+
+let g:startify_custom_header = [
+            \ '   +------------------------------------+',
+            \ '   |  Neovim conifg.                    |',
+            \ '   |  https://github.com/moonprism/nvim |',
+            \ '   +-------------------+----------------+',
+            \]
+
+" tagbar
+
+nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
 
 " defx
 
-nmap - :Defx -winwidth=33<CR>
+nmap - :Defx -winwidth=37<CR>
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icon:filename',
       \ 'winwidth': 35,
@@ -200,4 +211,10 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 let g:floaterm_keymap_toggle = '<C-t>'
 
 " motion
+
 map ; <Plug>(easymotion-prefix)
+
+" caw.vim
+
+nmap <Leader>c <Plug>(caw:prefix)
+xmap <Leader>c <Plug>(caw:prefix)

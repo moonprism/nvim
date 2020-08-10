@@ -95,13 +95,13 @@ Shortcut	|	Action
 `ds'`		|	删除包含字符`''`
 
 * [vim-floaterm](https://github.com/voldikss/vim-floaterm/)
-* [nerdcommenter](https://github.com/preservim/nerdcommenter)
+* [caw.vim](https://github.com/tyru/caw.vim)
 * [coc-translator](https://github.com/voldikss/coc-translator)
 * [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 
 Shortcut		|	Action
 ----------------|-----------
 `Ctrl` + `t`	|	终端
-`,` + `c Space`	|	注释
+`,` + `cc`	|	注释
 `,` + `t`		|	翻译
 `Ctrl` + `n`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
