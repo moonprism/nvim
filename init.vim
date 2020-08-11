@@ -63,8 +63,10 @@ endif
 
 let g:startify_custom_header = [
             \ '   +------------------------------------+',
-            \ '   |  Neovim conifg.                    |',
-            \ '   |  https://github.com/moonprism/nvim |',
+			\ '   |  __  _ __  __ _  __  __            |',
+			\ '   | |  \| |\ \/ /| ||  \/  |           |',
+			\ '   | |_|\__| \__/ |_||_|\/|_|           |',
+            \ '   | https://github.com/moonprism/nvim  |',
             \ '   +-------------------+----------------+',
             \]
 
