@@ -63,9 +63,9 @@ endif
 
 let g:startify_custom_header = [
             \ '   +------------------------------------+',
-			\ '   |  __  _ __  __ _  __  __            |',
-			\ '   | |  \| |\ \/ /| ||  \/  |           |',
-			\ '   | |_|\__| \__/ |_||_|\/|_|           |',
+            \ '   |  __  _ __  __ _  __  __            |',
+            \ '   | |  \| |\ \/ /| ||  \/  |           |',
+            \ '   | |_|\__| \__/ |_||_|\/|_|           |',
             \ '   | https://github.com/moonprism/nvim  |',
             \ '   +-------------------+----------------+',
             \]
@@ -198,7 +198,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 nmap ga <Plug>(GitGutterStageHunk)
 nmap gco <Plug>(GitGutterUndoHunk)
-nmap gd <Plug>(GitGutterPreviewHunk)
+nmap gs <Plug>(GitGutterPreviewHunk)
 :set updatetime=300
 
 let g:NERDSpaceDelims=1

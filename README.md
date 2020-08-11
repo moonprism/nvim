@@ -81,7 +81,7 @@ Shortcut	|	Action
 --------|-----------
 `ga`	|	save: 存储代码块
 `gco`	|	undo: 重做
-`gd`	|	preview: 预览
+`gs`	|	preview: 预览
 
 ### Others
 
