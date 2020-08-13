@@ -3,12 +3,11 @@
 set nocompatible
 set nu
 set cul
-set tabstop=4
 set smartindent
 let mapleader=","
 
 au FileType php,javascript,css set ts=4 sw=4 expandtab
-au FileType c,go set tabstop=4
+au FileType c,go set ts=4 sw=4
 
 inoremap jk <ESC>
 set hls
