@@ -113,6 +113,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> p
         \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> .
+	\ defx#do_action('toggle_ignored_files')
 endfunction
 function! DefxOpenView(_)
   if defx#is_directory()
