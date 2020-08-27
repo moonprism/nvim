@@ -6,7 +6,7 @@ set cul
 set smartindent
 let mapleader=","
 
-au FileType php,javascript,css set ts=4 sw=4 expandtab
+au FileType php,javascript,css,vue set ts=4 sw=4 expandtab
 au FileType c,go set ts=4 sw=4
 
 inoremap jk <ESC>
