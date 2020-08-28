@@ -189,7 +189,7 @@ nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
 nmap <C-h> <Plug>AirlineSelectPrevTab
 nmap <C-l> <Plug>AirlineSelectNextTab
-nmap <space>0 :bd<CR><space>1-<space>w<C-h>
+nmap <space>0 :bdelete<CR> :bnext<CR> :b:Item -<space>w
 
 " gitgutter
 
