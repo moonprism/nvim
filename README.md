@@ -10,12 +10,13 @@ vim IDE 打造计划，自用 neovim 配置
 
 ### 基础
 
-Shortcut		|	Action
-------------|-------------------
-`,`			|	指令前缀(leader)
+Shortcut	|	Action
+----------------|-------------------
+`,`		|	指令前缀(leader)
 `jk`		|	回退命令模式
 `backspace`	|	关闭高亮搜索
-`Space` + `w`	|	=`Ctrl` + `ww`，用于快速切换浏览与编辑区
+`Space` + `w`	|	=`<C-w>` + `w`，用于快速切换浏览与编辑区
+`Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `,` + `r`	|	重命名变量
 `Space` + `t`	|	于右侧打开ctags列表
 
@@ -23,8 +24,8 @@ Shortcut		|	Action
 
 * [airline_extensions_tabline](https://github.com/vim-airline/vim-airline)
 
-Shortcut			|	Action
-----------------|-------------------
+Shortcut		|	Action
+------------------------|-------------------
 `Space` + `[1-9]`	|	跳转指定标签
 `Space` + `0`		|	关闭标签
 `Ctrl` + `h`		|	上一个标签
@@ -71,7 +72,7 @@ Shortcut	|	Action
 --------|-----------
 `Ctrl` + `f`	|	搜索buffer区指定词
 `Ctrl` + `p`	|	文件搜索
-`Ctrl` + `g` 	|	全局搜索
+`Ctrl` + `g` 	|	全局搜索(选中模式下)
 
 ### Git
 

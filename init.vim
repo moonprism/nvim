@@ -6,6 +6,10 @@ set cul
 set smartindent
 let mapleader=","
 
+set autoread
+
+set lz
+
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
     set mouse=a
@@ -131,6 +135,8 @@ endfunction
 
 nmap <space>w :wincmd w<CR>
 
+nmap <space><tab> <C-^>
+
 " coc
 
 let g:coc_global_extensions = [
@@ -140,7 +146,7 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-go',
       \'coc-translator',
-      \'coc-markdownlint']
+      \]
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
