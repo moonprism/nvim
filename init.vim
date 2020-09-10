@@ -6,8 +6,17 @@ set cul
 set smartindent
 let mapleader=","
 
+if has('mouse')
+  if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
+    set mouse=a
+  else
+    set mouse=nvi
+  endif
+endif
+
 au FileType php,javascript,css,vue set ts=4 sw=4 expandtab
 au FileType c,go set ts=4 sw=4
+au FileType yaml set ts=2 sw=2 expandtab
 
 inoremap jk <ESC>
 set hls
@@ -88,19 +97,13 @@ call defx#custom#option('_', {
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-        \ defx#is_directory() ?
-        \ defx#do_action('open_tree') :
-        \ defx#do_action('drop')
+  nnoremap <silent><buffer><expr> <CR> defx#do_action('call', 'DefxOpenView')
   nnoremap <silent><buffer><expr> h
         \ defx#do_action('close_tree')
   nnoremap <silent><buffer><expr> t
         \ defx#do_action('drop', 'tabedit')
-  nnoremap <silent><buffer><expr> l
-        \ defx#is_directory() ?
-        \ defx#do_action('open_tree') :
-        \ defx#do_action('drop')
-  nnoremap <silent><buffer><expr> e defx#do_action('call', 'DefxOpenView')
+  nnoremap <silent><buffer><expr> l defx#do_action('call', 'DefxOpenView')
+  nnoremap <silent><buffer><expr> e
   nnoremap <silent><buffer><expr> nf
         \ defx#do_action('new_file')
   nnoremap <silent><buffer><expr> nd
@@ -115,15 +118,17 @@ function! s:defx_my_settings() abort
         \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> .
 	\ defx#do_action('toggle_ignored_files')
+  nnoremap <silent><buffer><expr> <2-LeftMouse> defx#do_action('call', 'DefxOpenView')
 endfunction
+
 function! DefxOpenView(_)
   if defx#is_directory()
     call defx#call_action('open_tree')
   else
     call defx#call_action('drop')
-    exec 'wincmd w'
   endif
 endfunction
+
 nmap <space>w :wincmd w<CR>
 
 " coc
@@ -189,7 +194,7 @@ nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
 nmap <C-h> <Plug>AirlineSelectPrevTab
 nmap <C-l> <Plug>AirlineSelectNextTab
-nmap <space>0 :bdelete<CR> :bnext<CR> :b:Item -<space>w
+nmap <space>0 :bdelete<CR> :bnext<CR> -<space>w
 
 " gitgutter
 
