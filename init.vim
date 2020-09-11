@@ -10,6 +10,9 @@ set autoread
 
 set lz
 
+nnoremap <Leader>p viw"0p
+vnoremap <Leader>p "0p
+
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
     set mouse=a
@@ -107,7 +110,6 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> t
         \ defx#do_action('drop', 'tabedit')
   nnoremap <silent><buffer><expr> l defx#do_action('call', 'DefxOpenView')
-  nnoremap <silent><buffer><expr> e
   nnoremap <silent><buffer><expr> nf
         \ defx#do_action('new_file')
   nnoremap <silent><buffer><expr> nd
