@@ -10,7 +10,7 @@ set autoread
 
 set lz
 
-nnoremap <Leader>p viw"0p
+nnoremap <Leader>p "0p
 vnoremap <Leader>p "0p
 
 if has('mouse')
