@@ -10,8 +10,8 @@ set autoread
 
 set lz
 
-nnoremap <Leader>p "0p
-vnoremap <Leader>p "0p
+nnoremap ;p "0p
+vnoremap ;p "0p
 
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))

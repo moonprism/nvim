@@ -18,8 +18,8 @@ Shortcut	|	Action
 `Space` + `w`	|	=`<C-w>` + `w`，用于快速切换浏览与编辑区
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `,` + `r`	|	重命名变量
-`,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `Space` + `t`	|	于右侧打开ctags列表
+`;` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 
 ### 标签页
 
@@ -83,7 +83,7 @@ Shortcut	|	Action
 --------|-----------
 `ga`	|	save: 存储代码块
 `gco`	|	undo: 重做
-`gs`	|	preview: 预览
+`gs`	|	preview: 预览（可惜gd习惯用来跳转了）
 
 ### Others
 
