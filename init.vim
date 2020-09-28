@@ -39,6 +39,18 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" session
+
+" Go to last file(s) if invoked without arguments.
+autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
+    \ call mkdir($HOME . "/.vim") |
+    \ endif |
+    \ execute "mksession! " . $HOME . "/.vim/Session.vim"
+
+autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/Session.vim") |
+    \ execute "source " . $HOME . "/.vim/Session.vim" |
+    \ execute "Defx"
+
 " Plug
 
 call plug#begin('~/.vim/plugged')
@@ -91,16 +103,23 @@ nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
 
 " defx
 
-nmap <space><space> :Defx -winwidth=38<CR>
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icon:filename',
-      \ 'winwidth': 35,
+      \ 'winwidth': 38,
       \ 'split': 'vertical',
       \ 'buffer_name': 'de',
       \ 'show_ignored_files': 0,
       \ 'toggle': 1,
       \ 'resume': 1
       \ })
+
+nmap <space><space> :Defx -session-file=/tmp/defx_session<CR>
+
+autocmd BufLeave  \[defx\]* call defx#call_action('add_session')
+autocmd VimEnter * nested if argc() == 0 |
+    \ execute "Defx -session-file=/tmp/defx_session"
+
+autocmd BufEnter * nested if (!has('vim_starting') && winnr('$') == 1 && &filetype ==# 'defx') | q | endif
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
