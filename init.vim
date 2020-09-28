@@ -91,7 +91,7 @@ nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
 
 " defx
 
-nmap - :Defx -winwidth=37<CR>
+nmap <space><space> :Defx -winwidth=38<CR>
 call defx#custom#option('_', {
       \ 'columns': 'mark:indent:git:icon:filename',
       \ 'winwidth': 35,
