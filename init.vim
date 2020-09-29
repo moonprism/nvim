@@ -35,6 +35,10 @@ set autowriteall
 set undofile
 set undodir=~/.vim/undodir
 
+" command
+
+command! Q :wqa
+
 " session
 
 set sessionoptions-=blank
@@ -48,7 +52,6 @@ autocmd VimLeave * nested if (!isdirectory(g:session_dir)) |
     \ call mkdir(g:session_dir) |
     \ endif |
     \ execute "mksession! " . SessionFile()
-
 
 function! VimStart()
   if argc() == 0

@@ -110,3 +110,7 @@ Shortcut		|	Action
 `,` + `cc`	|	注释
 `,` + `t`	|	翻译
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
+
+Command		|	Action
+----------------|-----------
+`Q`		|	=`:wqa`,用这个不会有session问题
