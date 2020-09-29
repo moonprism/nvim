@@ -6,6 +6,9 @@ vim IDE 打造计划，自用 neovim 配置
 
 终端字体：[Space Mono](https://fonts.google.com/specimen/Space+Mono)
 
+* defx session: `~/.vim/defx_session`
+* vim session: `~/.vim/sessions/*.vim`
+
 ## 快捷键
 
 ### 基础
@@ -29,9 +32,9 @@ Shortcut	|	Action
 Shortcut		|	Action
 ------------------------|-------------------
 `Space` + `[1-9]`	|	跳转指定标签
-`Space` + `0`		|	关闭标签
-`Ctrl` + `h`		|	上一个标签
-`Ctrl` + `l`		|	下一个标签
+`<C-x>`		|	关闭标签
+`<C-h>`		|	上一个标签
+`<C-l>`		|	下一个标签
 
 ### 跳转
 
@@ -71,9 +74,9 @@ Shortcut		|	Action
 
 Shortcut	|	Action
 --------|-----------
-`Ctrl` + `f`	|	搜索buffer区指定词
-`Ctrl` + `p`	|	文件搜索
-`Ctrl` + `g` 	|	全局搜索(选中模式下)
+`<C-f>`	|	搜索buffer区指定词
+`<C-p>`	|	文件搜索
+`<C-g>`	|	全局搜索(选中模式下)
 
 ### Git
 
@@ -91,7 +94,7 @@ Shortcut	|	Action
 
 
 Shortcut	|	Action
-------------|-----------
+----------------|-----------
 `ysiw"`		|	添加`""`包含当前字符串
 `cs"'`		|	替换包含字符为`''`
 `ds'`		|	删除包含字符`''`
@@ -103,7 +106,7 @@ Shortcut	|	Action
 
 Shortcut		|	Action
 ----------------|-----------
-`Ctrl` + `t`	|	终端
+`<C-t>`	|	终端
 `,` + `cc`	|	注释
-`,` + `t`		|	翻译
-`Ctrl` + `n`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
+`,` + `t`	|	翻译
+`<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`

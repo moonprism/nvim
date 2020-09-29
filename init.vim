@@ -35,21 +35,34 @@ set autowriteall
 set undofile
 set undodir=~/.vim/undodir
 
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
 " session
 
-" Go to last file(s) if invoked without arguments.
-autocmd VimLeave * nested if (!isdirectory($HOME . "/.vim")) |
-    \ call mkdir($HOME . "/.vim") |
-    \ endif |
-    \ execute "mksession! " . $HOME . "/.vim/Session.vim"
+set sessionoptions-=blank
+let g:session_dir = $HOME . '/.vim/sessions'
 
-autocmd VimEnter * nested if argc() == 0 && filereadable($HOME . "/.vim/Session.vim") |
-    \ execute "source " . $HOME . "/.vim/Session.vim" |
-    \ execute "Defx"
+function! SessionFile()
+  return g:session_dir . "/" . substitute(getcwd(), '/', '_', 'g') . ".vim"
+endfunction
+
+autocmd VimLeave * nested if (!isdirectory(g:session_dir)) |
+    \ call mkdir(g:session_dir) |
+    \ endif |
+    \ execute "mksession! " . SessionFile()
+
+
+function! VimStart()
+  if argc() == 0
+    if filereadable(SessionFile())
+      execute "source " . SessionFile()
+      call DefxStart()
+      execute "wincmd w"
+    else
+      call DefxStart()
+    endif
+  endif
+endfunction
+
+autocmd VimEnter * nested call VimStart()
 
 " Plug
 
@@ -113,11 +126,13 @@ call defx#custom#option('_', {
       \ 'resume': 1
       \ })
 
-nmap <space><space> :Defx -session-file=/tmp/defx_session<CR>
+function! DefxStart()
+  execute "Defx -session-file=" . $HOME . "/.vim/defx_session -auto-cd"
+endfunction
 
-autocmd BufLeave  \[defx\]* call defx#call_action('add_session')
-autocmd VimEnter * nested if argc() == 0 |
-    \ execute "Defx -session-file=/tmp/defx_session"
+nmap <space><space> :call DefxStart()<CR>
+
+autocmd BufLeave,BufWinLeave * nested call defx#call_action('add_session')
 
 autocmd BufEnter * nested if (!has('vim_starting') && winnr('$') == 1 && &filetype ==# 'defx') | q | endif
 
@@ -194,11 +209,11 @@ xnoremap <C-f> :<C-U><C-R>=printf("Lines %s", VisualText()) <CR><CR>
 
 " todo rg 进程不会自动关闭导致cpu占用过高
 command! -bang -nargs=* Rg
-		\ call fzf#vim#grep(
-		\   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
-		\   <bang>0 ? fzf#vim#with_preview('up:60%')
-		\           : fzf#vim#with_preview('right:50%:hidden', '?'),
-		\   <bang>0)
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
 xnoremap <C-g> :<C-U><C-R>=printf("Rg %s", escape(VisualText(), '()')) <CR><CR>
 
 " airline
@@ -221,7 +236,19 @@ nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
 nmap <C-h> <Plug>AirlineSelectPrevTab
 nmap <C-l> <Plug>AirlineSelectNextTab
-nmap <space>0 :bdelete<CR> :bnext<CR> -<space>w
+nmap <C-x> :call ExitTab()<CR>
+
+" autocmd BufEnter * if &buftype != 'nofile' | 
+
+function! ExitTab()
+  if len(getbufinfo({'buflisted':1})) > 1 |
+    let del_bn=buffer_number()
+    bprevious
+    execut "bdelete " . del_bn
+  else |
+    qa
+  endif
+endfunction
 
 " gitgutter
 
