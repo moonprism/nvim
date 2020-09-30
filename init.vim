@@ -191,6 +191,8 @@ function! s:defx_my_settings() abort
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> p
         \ defx#do_action('paste')
+  nnoremap <silent><buffer><expr> i
+        \ defx#do_action('multi',[['drop','split']])
   nnoremap <silent><buffer><expr> .
 	\ defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr> <2-LeftMouse> defx#do_action('call', 'DefxOpenView')
@@ -281,7 +283,7 @@ function! ExitTab()
     bprevious
     execut "bdelete " . del_bn
   else |
-    qa
+    bdelete 
   endif
 endfunction
 
