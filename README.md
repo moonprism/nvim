@@ -1,10 +1,10 @@
-# :heart: nvim
+<h1 align="center"> :heart: nvim </h1>
 
-![](https://kicoe-blog.oss-cn-shanghai.aliyuncs.com/eoyjbdQVQICwhKIwepkg.jpg)
+![](https://kicoe-blog.oss-cn-shanghai.aliyuncs.com/JavehjbfLENBoKwZIgFa.jpg)
 
-vim IDE 打造计划，自用 neovim 配置
+IDE 打造计划，自用 neovim 配置
 
-终端字体：[Space Mono](https://fonts.google.com/specimen/Space+Mono)
+终端字体：[Nerd Fonts Lilex](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Lilex)
 
 * defx session: `~/.vim/defx_session`
 * vim session: `~/.vim/sessions/*.vim`
@@ -65,8 +65,7 @@ Shortcut		|	Action
 `yy`		|	复制
 `p`			|	粘贴
 `dd`		|	删除
-`hjkl`		|	浏览，移动选择&打开关闭文件夹
-`t`			|	在新标签中打开文件
+`hjkl`	|	浏览，移动选择&打开关闭文件夹
 
 ### 搜索
 
@@ -110,6 +109,8 @@ Shortcut		|	Action
 `,` + `cc`	|	注释
 `,` + `t`	|	翻译
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
+
+## 命令
 
 Command		|	Action
 ----------------|-----------

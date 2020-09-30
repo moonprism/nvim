@@ -23,7 +23,7 @@ endif
 
 au FileType php,javascript,css,vue set ts=4 sw=4 expandtab
 au FileType c,go set ts=4 sw=4
-au FileType yaml set ts=2 sw=2 expandtab
+au FileType yaml,vim set ts=2 sw=2 expandtab
 
 inoremap jk <ESC>
 set hls
@@ -35,8 +35,13 @@ set autowriteall
 set undofile
 set undodir=~/.vim/undodir
 
+" 文件打开后回到原来的编辑位置
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
 " command
 
+" 直接用:q的话会触发下面defx配置中的BufEnter导致关闭文件后退出
+" 所以我希望使用一个完整的直接退出指令来保留session
 command! Q :wqa
 
 " session
@@ -85,6 +90,8 @@ Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'tyru/caw.vim'
+Plug 'kristijanhusak/defx-git'
+Plug 'kristijanhusak/defx-icons'
 call plug#end()
 
 " Theme
@@ -105,13 +112,13 @@ endif
 " vim-startify
 
 let g:startify_custom_header = [
-            \ '   +------------------------------------+',
-            \ '   |  __  _  __  __  _   __  __         |',
-            \ '   | |  \| | \ \/ / | | |  \/  |        |',
-            \ '   | |_|\__|  \__/  |_| |_|\/|_|        |',
-            \ '   | https://github.com/moonprism/nvim  |',
-            \ '   +-------------------+----------------+',
-            \]
+      \ '   +------------------------------------+',
+      \ '   |  __  _  __  __  _   __  __         |',
+      \ '   | |  \| | \ \/ / | | |  \/  |        |',
+      \ '   | |_|\__|  \__/  |_| |_|\/|_|        |',
+      \ '   | https://github.com/moonprism/nvim  |',
+      \ '   +-------------------+----------------+',
+      \]
 
 " tagbar
 
@@ -120,14 +127,39 @@ nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
 " defx
 
 call defx#custom#option('_', {
-      \ 'columns': 'mark:indent:git:icon:filename',
+      \ 'columns': 'mark:indent:git:icons:filename',
       \ 'winwidth': 38,
       \ 'split': 'vertical',
-      \ 'buffer_name': 'de',
+      \ 'direction': 'topleft',
       \ 'show_ignored_files': 0,
       \ 'toggle': 1,
-      \ 'resume': 1
+      \ 'root_marker': '[in]: '
       \ })
+
+call defx#custom#column('icon', {
+      \ 'directory_icon': '▸',
+      \ 'opened_icon': '▾',
+      \ 'root_icon': ' ',
+      \ })
+
+call defx#custom#column('filename', {
+      \ 'min_width': 40,
+      \ 'max_width': 40,
+      \ })
+
+call defx#custom#column('git', 'indicators', {
+      \ 'Modified'  : '•',
+      \ 'Staged'    : '+',
+      \ 'Untracked' : 'ᵁ',
+      \ 'Renamed'   : '>',
+      \ 'Unmerged'  : '≠',
+      \ 'Ignored'   : 'ⁱ',
+      \ 'Deleted'   : 'x',
+      \ 'Unknown'   : '?'
+      \ })
+
+hi Defx_git_Untracked guifg=#ec5f67
+hi Defx_git_Staged guifg=#99c794
 
 function! DefxStart()
   execute "Defx -session-file=" . $HOME . "/.vim/defx_session -auto-cd"
