@@ -104,6 +104,7 @@ Shortcut	|	Action
 * [caw.vim](https://github.com/tyru/caw.vim)
 * [coc-translator](https://github.com/voldikss/coc-translator)
 * [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
+* [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
 
 Shortcut		|	Action
 ----------------|-----------
@@ -111,6 +112,7 @@ Shortcut		|	Action
 `,` + `cc`	|	注释
 `,` + `t`	|	翻译
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
+`,` + `m`	|	预览markdown
 
 ## 命令
 

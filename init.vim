@@ -97,7 +97,13 @@ Plug 'majutsushi/tagbar'
 Plug 'tyru/caw.vim'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
+
+" markdown
+
+nmap <Leader>m <Plug>MarkdownPreview
+let g:mkdp_auto_close = 0
 
 " Theme
 
