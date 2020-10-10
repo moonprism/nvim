@@ -13,6 +13,11 @@ set lz
 nnoremap ;p "0p
 vnoremap ;p "0p
 
+nnoremap <Leader>y "+y
+vnoremap <Leader>y "+y
+nnoremap <Leader>p "+p
+vnoremap <Leader>p "+p
+
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
     set mouse=a
