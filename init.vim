@@ -282,9 +282,12 @@ nmap <space>6 <Plug>AirlineSelectTab6
 nmap <space>7 <Plug>AirlineSelectTab7
 nmap <space>8 <Plug>AirlineSelectTab8
 nmap <space>9 <Plug>AirlineSelectTab9
-nmap <C-h> <Plug>AirlineSelectPrevTab
-nmap <C-l> <Plug>AirlineSelectNextTab
-nmap <C-x> :call ExitTab()<CR>
+nmap <M-h> <Plug>AirlineSelectPrevTab
+nmap <M-l> <Plug>AirlineSelectNextTab
+nmap <M-x> :call ExitTab()<CR>
+imap <M-h> <Esc> :execut "normal \<Plug>AirlineSelectPrevTab"<CR>
+imap <M-l> <ESC> :execut "normal \<Plug>AirlineSelectNextTab"<CR>
+imap <M-x> <Esc> :call ExitTab()<CR>
 
 " autocmd BufEnter * if &buftype != 'nofile' | 
 
