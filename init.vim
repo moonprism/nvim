@@ -28,10 +28,11 @@ endif
 
 au FileType php,javascript,css,vue set ts=4 sw=4 expandtab
 au FileType c,go set ts=4 sw=4
-au FileType yaml,vim set ts=2 sw=2 expandtab
+au FileType yaml,vim,json set ts=2 sw=2 expandtab
 
 inoremap jk <ESC>
-set hls
+set hlsearch
+set ignorecase
 nnoremap <backspace> :nohl<CR>
 
 " aotosave & undo/redo
@@ -40,14 +41,10 @@ set autowriteall
 set undofile
 set undodir=~/.vim/undodir
 
-" 文件打开后回到原来的编辑位置
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" quit
 
-" command
-
-" 直接用:q的话会触发下面defx配置中的BufEnter导致关闭文件后退出
-" 所以我希望使用一个完整的直接退出指令来保留session
-command! Q :wqa
+nmap <M-q> :wqa<CR>
+imap <M-q> <Esc> :wqa<CR>
 
 " session
 
@@ -190,9 +187,9 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> t
         \ defx#do_action('drop', 'tabedit')
   nnoremap <silent><buffer><expr> l defx#do_action('call', 'DefxOpenView')
-  nnoremap <silent><buffer><expr> nf
+  nnoremap <silent><buffer><expr> mf
         \ defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> nd
+  nnoremap <silent><buffer><expr> md
         \ defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> dd
         \ defx#do_action('remove')
@@ -202,8 +199,10 @@ function! s:defx_my_settings() abort
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> p
         \ defx#do_action('paste')
-  nnoremap <silent><buffer><expr> i
+  nnoremap <silent><buffer><expr> sp
         \ defx#do_action('multi',[['drop','split']])
+  nnoremap <silent><buffer><expr> vsp
+        \ defx#do_action('multi',[['drop','vsplit']])
   nnoremap <silent><buffer><expr> .
 	\ defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr> <2-LeftMouse> defx#do_action('call', 'DefxOpenView')
@@ -218,8 +217,11 @@ function! DefxOpenView(_)
 endfunction
 
 nmap <space>w :wincmd w<CR>
-
 nmap <space><tab> <C-^>
+nmap <space>h <C-w>h
+nmap <space>j <C-w>j
+nmap <space>k <C-w>k
+nmap <space>l <C-w>l
 
 " coc
 
@@ -288,8 +290,6 @@ nmap <M-x> :call ExitTab()<CR>
 imap <M-h> <Esc> :execut "normal \<Plug>AirlineSelectPrevTab"<CR>
 imap <M-l> <ESC> :execut "normal \<Plug>AirlineSelectNextTab"<CR>
 imap <M-x> <Esc> :call ExitTab()<CR>
-
-" autocmd BufEnter * if &buftype != 'nofile' | 
 
 function! ExitTab()
   if len(getbufinfo({'buflisted':1})) > 1 |

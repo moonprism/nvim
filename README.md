@@ -1,7 +1,5 @@
 <h1 align="center"> :heart: nvim </h1>
 
-![](https://kicoe-blog.oss-cn-shanghai.aliyuncs.com/JavehjbfLENBoKwZIgFa.jpg)
-
 IDE 打造计划，自用 neovim 配置
 
 终端字体：[Nerd Fonts Lilex](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Lilex)
@@ -20,11 +18,13 @@ Shortcut	|	Action
 `Backspace`	|	关闭高亮搜索
 `Space` + `Space`	|	打开文件树
 `Space` + `w`	|	=`<C-w>` + `w`，用于快速切换浏览与编辑区
+`Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `,` + `r`	|	重命名变量
 `Space` + `t`	|	于右侧打开ctags列表
 `;` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `,` + `y/p` | = `"+y/p` 系统剪贴板
+`<M-q>`		|	= `:wqa` 全退出
 
 ### 标签页
 
@@ -60,14 +60,14 @@ Shortcut	|	Action
 
 Shortcut		|	Action
 ------------|-----------
-`nd`		|	新建目录
-`nf`		|	新建文件
+`md`		|	新建目录
+`mf`		|	新建文件
 `re`		|	重命名
 `yy`		|	复制
 `p`			|	粘贴
 `dd`		|	删除
 `hjkl`	|	浏览，移动选择&打开关闭文件夹
-`i` | 分屏打开文件
+`sp/vsp` | 分屏打开文件
 
 ### 搜索
 
@@ -113,9 +113,3 @@ Shortcut		|	Action
 `,` + `t`	|	翻译
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
 `,` + `m`	|	预览markdown
-
-## 命令
-
-Command		|	Action
-----------------|-----------
-`Q`		|	=`:wqa`,用这个不会有session问题
