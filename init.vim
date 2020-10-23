@@ -10,8 +10,7 @@ set autoread
 
 set lz
 
-nnoremap ;p "0p
-vnoremap ;p "0p
+map <C-p> "0p
 
 nnoremap <Leader>y "+y
 vnoremap <Leader>y "+y
@@ -242,7 +241,7 @@ nmap <Leader>r <Plug>(coc-rename)
 
 " fzf
 
-nmap <C-p> :Files <CR>
+" nmap <C-p> :Files <CR>
 nmap <C-f> :Lines <CR>
 
 function! VisualText()

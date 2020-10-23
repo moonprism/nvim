@@ -21,7 +21,7 @@ Shortcut	|	Action
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `,` + `r`	|	重命名变量
-`Space` + `t`	|	于右侧打开ctags列表
+`Space` + `t`	|	于右侧打开ctags列表 `q`: 退出
 `;` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `,` + `y/p` | = `"+y/p` 系统剪贴板
 `<M-q>`		|	= `:wqa` 全退出
