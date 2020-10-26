@@ -10,12 +10,7 @@ set autoread
 
 set lz
 
-map <C-p> "0p
-
-nnoremap <Leader>y "+y
-vnoremap <Leader>y "+y
-nnoremap <Leader>p "+p
-vnoremap <Leader>p "+p
+map <Leader>p "0p
 
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
@@ -203,7 +198,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> vsp
         \ defx#do_action('multi',[['drop','vsplit']])
   nnoremap <silent><buffer><expr> .
-	\ defx#do_action('toggle_ignored_files')
+        \ defx#do_action('toggle_ignored_files')
   nnoremap <silent><buffer><expr> <2-LeftMouse> defx#do_action('call', 'DefxOpenView')
 endfunction
 
@@ -309,6 +304,9 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 nmap ga <Plug>(GitGutterStageHunk)
 nmap gco <Plug>(GitGutterUndoHunk)
 nmap gs <Plug>(GitGutterPreviewHunk)
+nmap gn <Plug>(GitGutterNextHunk)
+nmap gp <Plug>(GitGutterPrevHunk)
+
 :set updatetime=300
 
 let g:NERDSpaceDelims=1

@@ -20,10 +20,9 @@ Shortcut	|	Action
 `Space` + `w`	|	=`<C-w>` + `w`，用于快速切换浏览与编辑区
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
+`Space` + `t`	|	打开ctags列表 `q` 退出
 `,` + `r`	|	重命名变量
-`Space` + `t`	|	于右侧打开ctags列表 `q`: 退出
-`;` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
-`,` + `y/p` | = `"+y/p` 系统剪贴板
+`,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `<M-q>`		|	= `:wqa` 全退出
 
 ### 标签页
@@ -88,6 +87,8 @@ Shortcut	|	Action
 `ga`	|	save: 存储代码块
 `gco`	|	undo: 重做
 `gs`	|	preview: 预览（可惜gd习惯用来跳转了）
+`gn`	|	Next Hunk
+`gp`	|	Prev Hunk
 
 ### Others
 
