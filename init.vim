@@ -11,6 +11,7 @@ set autoread
 set lz
 
 map <Leader>p "0p
+map <M-y> "+y
 
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
@@ -95,6 +96,7 @@ call plug#end()
 
 nmap <Leader>m <Plug>MarkdownPreview
 let g:mkdp_auto_close = 0
+" let g:mkdp_markdown_css = expand('~/.markdown.css')
 
 " Theme
 
