@@ -1,11 +1,14 @@
 <h1 align="center"> :heart: nvim </h1>
 
+![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-h.jpg)
+
 IDE 打造计划，自用 neovim 配置
 
 终端字体：[Nerd Fonts Lilex](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Lilex)
 
 * defx session: `~/.vim/defx_session`
-* vim session: `~/.vim/sessions/*.vim`
+
+* vim session: `~/.vim/sessions/{project_dir}.vim`
 
 ## 快捷键
 
@@ -95,7 +98,6 @@ Shortcut	|	Action
 
 * [vim-surround](https://github.com/tpope/vim-surround)
 
-
 Shortcut	|	Action
 ----------------|-----------
 `ysiw"`		|	添加`""`包含当前字符串
@@ -115,3 +117,11 @@ Shortcut		|	Action
 `,` + `t`	|	翻译
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
 `,` + `m`	|	预览markdown
+
+---
+
+![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-a.png)
+
+![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-b.png)
+
+![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-c.png)

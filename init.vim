@@ -81,6 +81,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'airblade/vim-gitgutter'
 Plug 'mhartington/oceanic-next'
+Plug 'rakr/vim-one'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'tpope/vim-surround'
@@ -101,7 +102,12 @@ let g:mkdp_auto_close = 0
 " Theme
 
 syntax enable
-colorscheme OceanicNext
+
+" colorscheme OceanicNext
+
+" set background=light        " for the light version
+" let g:one_allow_italics = 1 " I love italic for comments
+colorscheme one
 
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -238,7 +244,7 @@ nmap <Leader>r <Plug>(coc-rename)
 
 " fzf
 
-" nmap <C-p> :Files <CR>
+nmap <C-p> :Files <CR>
 nmap <C-f> :Lines <CR>
 
 function! VisualText()
