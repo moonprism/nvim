@@ -30,6 +30,8 @@ set hlsearch
 set ignorecase
 nnoremap <backspace> :nohl<CR>
 
+nnoremap vib {wV}b$
+
 " aotosave & undo/redo
 
 set autowriteall
