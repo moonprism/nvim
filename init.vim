@@ -12,6 +12,7 @@ set lz
 
 map <Leader>p "0p
 map <M-y> "+y
+map <M-p> "+p
 
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
@@ -94,6 +95,10 @@ Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
+
+" auto-pairs
+
+let g:AutoPairsShortcutToggle = ''
 
 " markdown
 

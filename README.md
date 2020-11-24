@@ -1,6 +1,4 @@
-<h1 align="center"> :heart: nvim </h1>
-
-![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-h.jpg)
+<h1 align="center"> nvim </h1>
 
 IDE 打造计划，自用 neovim 配置
 
@@ -24,9 +22,7 @@ Shortcut	|	Action
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `Space` + `t`	|	打开ctags列表 `q` 退出
-`vib`     | = `{wV}b$` 选中块
 `,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
-`<M-y>`		|	= `"+p`
 `<M-q>`		|	= `:wqa` 全退出
 `,` + `r`	|	重命名变量
 
