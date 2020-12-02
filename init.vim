@@ -87,7 +87,6 @@ Plug 'mhartington/oceanic-next'
 Plug 'rakr/vim-one'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'majutsushi/tagbar'
 Plug 'tyru/caw.vim'

@@ -22,6 +22,7 @@ Shortcut	|	Action
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `Space` + `t`	|	打开ctags列表 `q` 退出
+`<M-y>/<M-p>` | = `"+y/p` (关闭vim后系统粘贴板数据将同步失败...)
 `,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `<M-q>`		|	= `:wqa` 全退出
 `,` + `r`	|	重命名变量
@@ -92,14 +93,6 @@ Shortcut	|	Action
 `gp`	|	Prev Hunk
 
 ### Others
-
-* [vim-surround](https://github.com/tpope/vim-surround)
-
-Shortcut	|	Action
-----------------|-----------
-`ysiw"`		|	添加`""`包含当前字符串
-`cs"'`		|	替换包含字符为`''`
-`ds'`		|	删除包含字符`''`
 
 * [vim-floaterm](https://github.com/voldikss/vim-floaterm/)
 * [caw.vim](https://github.com/tyru/caw.vim)
