@@ -332,7 +332,8 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 
 " floaterm
 
-let g:floaterm_keymap_toggle = '<C-t>'
+map <M-s> :w<CR>:FloatermToggle<CR>
+tnoremap <silent> <M-s> <C-\><C-n>:FloatermToggle<CR>
 
 " motion
 
