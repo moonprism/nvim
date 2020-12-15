@@ -83,8 +83,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins'  }
 Plug 'airblade/vim-gitgutter'
-Plug 'mhartington/oceanic-next'
-Plug 'rakr/vim-one'
 Plug 'voldikss/vim-floaterm'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'easymotion/vim-easymotion'
@@ -93,6 +91,8 @@ Plug 'tyru/caw.vim'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" theme
+Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 " auto-pairs
@@ -109,11 +109,8 @@ let g:mkdp_auto_close = 0
 
 syntax enable
 
-" colorscheme OceanicNext
-
-" set background=light        " for the light version
-" let g:one_allow_italics = 1 " I love italic for comments
-colorscheme one
+set background=dark
+colorscheme palenight
 
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
