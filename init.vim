@@ -91,6 +91,9 @@ Plug 'tyru/caw.vim'
 Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" bufferline
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/nvim-bufferline.lua'
 " theme
 Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
@@ -273,28 +276,26 @@ xnoremap <C-g> :<C-U><C-R>=printf("Rg %s", escape(VisualText(), '()')) <CR><CR>
 
 " airline
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_nr = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-
-" airline & buffer
- 
-nmap <space>1 <Plug>AirlineSelectTab1
-nmap <space>2 <Plug>AirlineSelectTab2
-nmap <space>3 <Plug>AirlineSelectTab3
-nmap <space>4 <Plug>AirlineSelectTab4
-nmap <space>5 <Plug>AirlineSelectTab5
-nmap <space>6 <Plug>AirlineSelectTab6
-nmap <space>7 <Plug>AirlineSelectTab7
-nmap <space>8 <Plug>AirlineSelectTab8
-nmap <space>9 <Plug>AirlineSelectTab9
-nmap <M-h> <Plug>AirlineSelectPrevTab
-nmap <M-l> <Plug>AirlineSelectNextTab
-nmap <M-x> :call ExitTab()<CR>
-imap <M-h> <Esc> :execut "normal \<Plug>AirlineSelectPrevTab"<CR>
-imap <M-l> <ESC> :execut "normal \<Plug>AirlineSelectNextTab"<CR>
-imap <M-x> <Esc> :call ExitTab()<CR>
+" let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#show_tab_nr = 1
+" let g:airline#extensions#tabline#tab_nr_type = 1
+" let g:airline#extensions#tabline#buffer_idx_mode = 1
+" 
+" " airline & buffer
+"  
+" nmap <space>1 <Plug>AirlineSelectTab1
+" nmap <space>2 <Plug>AirlineSelectTab2
+" nmap <space>3 <Plug>AirlineSelectTab3
+" nmap <space>4 <Plug>AirlineSelectTab4
+" nmap <space>5 <Plug>AirlineSelectTab5
+" nmap <space>6 <Plug>AirlineSelectTab6
+" nmap <space>7 <Plug>AirlineSelectTab7
+" nmap <space>8 <Plug>AirlineSelectTab8
+" nmap <space>9 <Plug>AirlineSelectTab9
+" nmap <M-h> <Plug>AirlineSelectPrevTab
+" nmap <M-l> <Plug>AirlineSelectNextTab
+" imap <M-h> <Esc> :execut "normal \<Plug>AirlineSelectPrevTab"<CR>
+" imap <M-l> <ESC> :execut "normal \<Plug>AirlineSelectNextTab"<CR>
 
 function! ExitTab()
   if len(getbufinfo({'buflisted':1})) > 1 |
@@ -305,6 +306,17 @@ function! ExitTab()
     bdelete 
   endif
 endfunction
+
+" bufferline
+
+set termguicolors
+" In your init.vim AFTER loading plugins
+lua require'bufferline'.setup()
+
+nnoremap <silent><M-l> :BufferLineCycleNext<CR>
+nnoremap <silent><M-h> :BufferLineCyclePrev<CR>
+nmap <M-x> :call ExitTab()<CR>
+imap <M-x> <Esc> :call ExitTab()<CR>
 
 " gitgutter
 

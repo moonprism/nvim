@@ -22,18 +22,17 @@ Shortcut	|	Action
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `Space` + `t`	|	打开ctags列表 `q` 退出
-`<M-y>/<M-p>` | = `"+y/p` (关闭vim后系统粘贴板数据将同步失败...)
+`<M-y>/<M-p>` | = `"+y/p` (关闭vim后系统粘贴板数据将同步丢失...)
 `,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `<M-q>`		|	= `:wqa` 全退出
 `,` + `r`	|	重命名变量
 
 ### 标签页
 
-* [airline_extensions_tabline](https://github.com/vim-airline/vim-airline)
+* [nvim-bufferline.lua](https://github.com/akinsho/nvim-bufferline.lua)
 
 Shortcut		|	Action
-------------------------|-------------------
-`Space` + `[1-9]`	|	跳转指定标签
+-----------------|-------------------
 `<M-x>`		|	关闭标签
 `<M-h>`		|	上一个标签
 `<M-l>`		|	下一个标签
