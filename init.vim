@@ -1,5 +1,7 @@
 " -------------- oh my vim ~ --------------
 
+set noswapfile
+set encoding=utf-8
 set nocompatible
 set nu
 set cul
@@ -41,8 +43,8 @@ set undodir=~/.vim/undodir
 
 " quit
 
-nmap <M-q> :wqa<CR>
-imap <M-q> <Esc> :wqa<CR>
+nnoremap <M-q> :wqa<CR>
+inoremap <M-q> <Esc> :wqa<CR>
 
 " session
 
@@ -76,7 +78,6 @@ autocmd VimEnter * nested call VimStart()
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
@@ -92,6 +93,7 @@ Plug 'kristijanhusak/defx-git'
 Plug 'kristijanhusak/defx-icons'
 Plug 'luochen1990/rainbow'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'itchyny/lightline.vim'
 " bufferline
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
@@ -144,7 +146,7 @@ let g:startify_custom_header = [
 
 " tagbar
 
-nmap <space>t :TagbarToggle<CR>:wincmd l<CR>
+nmap <silent> <space>t :TagbarToggle<CR>:wincmd l<CR>
 
 " defx
 
@@ -230,7 +232,7 @@ function! DefxOpenView(_)
   endif
 endfunction
 
-nmap <space>w :wincmd w<CR>
+nmap <silent> <space>w :wincmd w<CR>
 nmap <space><tab> <C-^>
 nmap <space>h <C-w>h
 nmap <space>j <C-w>j
@@ -253,6 +255,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <Leader>r <Plug>(coc-rename)
+
+inoremap <expr> <M-j> pumvisible() ? "\<C-n>" : "\<M-j>"
+inoremap <expr> <M-k> pumvisible() ? "\<C-p>" : "\<M-k>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " fzf
 
@@ -280,8 +286,15 @@ command! -bang -nargs=* Rg
       \   <bang>0)
 xnoremap <C-g> :<C-U><C-R>=printf("Rg %s", escape(VisualText(), '()')) <CR><CR>
 
-" airline
+" lightline
 
+let g:lightline = {
+      \ 'colorscheme': 'default',
+      \ 'enable': {
+      \   'statusline': 1,
+      \   'tabline': 0
+      \ },
+      \ }
 
 " bufferline
 
@@ -291,8 +304,11 @@ lua require'bufferline'.setup()
 
 nnoremap <silent><M-l> :BufferLineCycleNext<CR>
 nnoremap <silent><M-h> :BufferLineCyclePrev<CR>
-nmap <M-x> :call ExitTab()<CR>
-imap <M-x> <Esc> :call ExitTab()<CR>
+inoremap <silent><M-l> <ESC>:BufferLineCycleNext<CR>
+inoremap <silent><M-h> <ESC>:BufferLineCyclePrev<CR>
+
+nnoremap <M-x> :call ExitTab()<CR>
+inoremap <M-x> <Esc> :call ExitTab()<CR>
 
 function! ExitTab()
   if len(getbufinfo({'buflisted':1})) > 1 |

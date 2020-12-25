@@ -54,6 +54,21 @@ Shortcut	|	Action
 `gd`	| 跳转定义
 `gr`	| 打开可跳转的引用列表
 
+### coc
+
+* 补全
+
+Shortcut	|	Action
+--------|-----------
+`<M-j>`	| 下一个补全项
+`<M-k>`	| 上一个补全项
+
+* [coc-translator](https://github.com/voldikss/coc-translator)
+
+Shortcut	|	Action
+--------|-----------
+`,` + `t`	|	翻译
+
 ### 文件浏览
 
 * [defx](https://github.com/Shougo/defx.nvim)
@@ -95,7 +110,6 @@ Shortcut	|	Action
 
 * [vim-floaterm](https://github.com/voldikss/vim-floaterm/)
 * [caw.vim](https://github.com/tyru/caw.vim)
-* [coc-translator](https://github.com/voldikss/coc-translator)
 * [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
 * [markdown-preview](https://github.com/iamcco/markdown-preview.nvim)
 
@@ -103,7 +117,6 @@ Shortcut		|	Action
 ----------------|-----------
 `<M-s>`	|	保存并打开终端
 `,` + `cc`	|	注释
-`,` + `t`	|	翻译
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
 `,` + `m`	|	预览markdown
 
