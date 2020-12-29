@@ -8,12 +8,15 @@ set cul
 set smartindent
 let mapleader=","
 
+set spell
+set spelllang=en,cjk
+
 set autoread
 
 set lz
 
-map <Leader>p "0p
-map <M-y> "+y
+noremap <Leader>p "0p
+vnoremap <M-y> "+y
 map <M-p> "+p
 
 if has('mouse')
@@ -31,11 +34,24 @@ au FileType yaml,vim,json,proto set ts=2 sw=2 expandtab
 inoremap jk <ESC>
 set hlsearch
 set ignorecase
-nnoremap <backspace> :nohl<CR>
+nnoremap <silent> <C-l>  :<C-u>nohl<CR><C-l>
 
-nnoremap vib {wV}b$
+inoremap <C-g> <C-o>
 
-" aotosave & undo/redo
+nnoremap <silent> <leader>a 0"ay$dd
+
+" vim实用技巧.86
+xnoremap * :<C-u>call<SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+  let temp = @s
+  norm! gv"sy
+  let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+  let @s = temp
+endfunction
+
+" auto save & undo/redo
 
 set autowriteall
 set undofile
@@ -77,6 +93,7 @@ autocmd VimEnter * nested call VimStart()
 " Plug
 
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
@@ -251,9 +268,8 @@ let g:coc_global_extensions = [
       \]
 
 nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gti <Plug>(coc-implementation)
 nmap <Leader>r <Plug>(coc-rename)
 
 inoremap <expr> <M-j> pumvisible() ? "\<C-n>" : "\<M-j>"
@@ -329,8 +345,8 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 nmap ga <Plug>(GitGutterStageHunk)
 nmap gco <Plug>(GitGutterUndoHunk)
 nmap gs <Plug>(GitGutterPreviewHunk)
-nmap gn <Plug>(GitGutterNextHunk)
-nmap gp <Plug>(GitGutterPrevHunk)
+nmap gitn <Plug>(GitGutterNextHunk)
+nmap gitp <Plug>(GitGutterPrevHunk)
 
 :set updatetime=300
 

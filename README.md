@@ -16,7 +16,7 @@ Shortcut	|	Action
 ----------------|-------------------
 `,`		|	指令前缀(leader)
 `jk`		|	回退命令模式
-`Backspace`	|	关闭高亮搜索
+`<C-l>`	|	关闭高亮搜索
 `Space` + `Space`	|	打开文件树
 `Space` + `w`	|	=`<C-w>` + `w`，用于快速切换浏览与编辑区
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
@@ -26,6 +26,8 @@ Shortcut	|	Action
 `,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
 `<M-q>`		|	= `:wqa` 全退出
 `,` + `r`	|	重命名变量
+`,` + `a` | = `0"ay$dd` 配合 `:put a` 修改宏a
+`C-g` insert | = `C-o` 插入模式下
 
 ### 标签页
 
@@ -103,11 +105,12 @@ Shortcut	|	Action
 `ga`	|	save: 存储代码块
 `gco`	|	undo: 重做
 `gs`	|	preview: 预览（可惜gd习惯用来跳转了）
-`gn`	|	Next Hunk
-`gp`	|	Prev Hunk
+`gitn`	|	Next Hunk
+`gitp`	|	Prev Hunk
 
 ### Others
 
+* [vim-surround](https://github.com/tpope/vim-surround)
 * [vim-floaterm](https://github.com/voldikss/vim-floaterm/)
 * [caw.vim](https://github.com/tyru/caw.vim)
 * [vim-visual-multi](https://github.com/mg979/vim-visual-multi)
