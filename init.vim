@@ -60,7 +60,7 @@ set undodir=~/.vim/undodir
 " quit
 
 nnoremap <M-q> :wqa<CR>
-inoremap <M-q> <Esc> :wqa<CR>
+nnoremap <Leader>v :wqa<CR>
 
 " session
 
@@ -272,9 +272,9 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gti <Plug>(coc-implementation)
 nmap <Leader>r <Plug>(coc-rename)
 
-inoremap <expr> <M-j> pumvisible() ? "\<C-n>" : "\<M-j>"
-inoremap <expr> <M-k> pumvisible() ? "\<C-p>" : "\<M-k>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <M-j> pumvisible() ? "\<C-n>" : "\<M-j>"
+" inoremap <expr> <M-k> pumvisible() ? "\<C-p>" : "\<M-k>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " fzf
 

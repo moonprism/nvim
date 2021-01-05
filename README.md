@@ -56,15 +56,6 @@ Shortcut	|	Action
 `gd`	| 跳转定义
 `gr`	| 打开可跳转的引用列表
 
-### coc
-
-* 补全
-
-Shortcut	|	Action
---------|-----------
-`<M-j>`	| 下一个补全项
-`<M-k>`	| 上一个补全项
-
 * [coc-translator](https://github.com/voldikss/coc-translator)
 
 Shortcut	|	Action
