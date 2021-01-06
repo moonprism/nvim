@@ -10,6 +10,7 @@ let mapleader=","
 
 set spell
 set spelllang=en,cjk
+set spellfile+=~/.spellfile.add
 
 set autoread
 
@@ -39,6 +40,9 @@ nnoremap <silent> <C-l>  :<C-u>nohl<CR><C-l>
 inoremap <C-g> <C-o>
 
 nnoremap <silent> <leader>a 0"ay$dd
+
+" golang []int 类型定义
+inoremap [[ []
 
 " vim实用技巧.86
 xnoremap * :<C-u>call<SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
@@ -271,10 +275,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gti <Plug>(coc-implementation)
 nmap <Leader>r <Plug>(coc-rename)
-
-" inoremap <expr> <M-j> pumvisible() ? "\<C-n>" : "\<M-j>"
-" inoremap <expr> <M-k> pumvisible() ? "\<C-p>" : "\<M-k>"
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " fzf
 

@@ -8,6 +8,8 @@ IDE 打造计划，自用 neovim 配置
 
 * vim session: `~/.vim/sessions/{project_dir}.vim`
 
+* spellfile: `~/.spellfile.add`
+
 ## 快捷键
 
 ### 基础
