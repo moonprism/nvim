@@ -8,9 +8,9 @@ set cul
 set smartindent
 let mapleader=","
 
-set spell
-set spelllang=en,cjk
-set spellfile+=~/.spellfile.add
+" set spell
+" set spelllang=en,cjk
+" set spellfile+=~/.spellfile.add
 
 set autoread
 
