@@ -41,12 +41,18 @@ inoremap <C-g> <C-o>
 
 nnoremap <silent> <leader>a 0"ay$dd
 
+" ======= todo 自定义补全(coco) =======
+"
 " golang []int 类型定义
-inoremap [[ []
+au FileType go inoremap [[ []
+
+" golang `j 补全
+au FileType go inoremap `j <ESC>^yiw$a`json:"<ESC>pbgul$a"`
+
 
 " vim实用技巧.86
 xnoremap * :<C-u>call<SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call<SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
 function! s:VSetSearch()
   let temp = @s
@@ -359,12 +365,13 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 
 " floaterm
 
-map <M-s> :w<CR>:FloatermToggle<CR>
+nnoremap <M-s> :w<CR>:FloatermToggle<CR>
+inoremap <M-s> <ESC>:w<CR>:FloatermToggle<CR>
 tnoremap <silent> <M-s> <C-\><C-n>:FloatermToggle<CR>
 
 " motion
 
-map ; <Plug>(easymotion-prefix)
+nnoremap ; <Plug>(easymotion-prefix)
 
 " caw.vim
 
