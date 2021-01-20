@@ -30,7 +30,7 @@ endif
 
 au FileType php,javascript,css,vue set ts=4 sw=4 expandtab
 au FileType c,go set ts=4 sw=4
-au FileType yaml,vim,json,proto set ts=2 sw=2 expandtab
+au FileType html,yaml,vim,json,proto set ts=2 sw=2 expandtab
 
 inoremap jk <ESC>
 set hlsearch
@@ -371,7 +371,7 @@ tnoremap <silent> <M-s> <C-\><C-n>:FloatermToggle<CR>
 
 " motion
 
-nnoremap ; <Plug>(easymotion-prefix)
+map ; <Plug>(easymotion-prefix)
 
 " caw.vim
 
