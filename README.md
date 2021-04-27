@@ -10,6 +10,8 @@ IDE 打造计划，自用 neovim 配置
 
 * spellfile: `~/.spellfile.add`
 
+> neovim0.5原来还没发布吗
+
 ## 快捷键
 
 ### 基础
@@ -24,9 +26,8 @@ Shortcut	|	Action
 `Space` + `h/j/k/l`	|	=`<C-w>` + `h/j/k/l`，选择分屏
 `Space` + `<tab>`|	=`<C-^>`，标签快速切换
 `Space` + `t`	|	打开ctags列表 `q` 退出
-`<M-y>/<M-p>` | = `"+y/p` (关闭vim后系统粘贴板数据将同步丢失...)
 `,` + `p`	|	= `"0p` (寄存器0永远只存复制数据)
-`<M-q>`		|	= `:wqa` 全退出
+`<C-q>`		|	= `:wqa` 全退出
 `,` + `r`	|	重命名变量
 `,` + `a` | = `0"ay$dd` 配合 `:put a` 修改宏a
 `C-g` insert | = `C-o` 插入模式下
@@ -37,9 +38,9 @@ Shortcut	|	Action
 
 Shortcut		|	Action
 -----------------|-------------------
-`<M-x>`		|	关闭标签
-`<M-h>`		|	上一个标签
-`<M-l>`		|	下一个标签
+`<C-x>`		|	关闭标签
+`<C-h>`		|	上一个标签
+`<C-l>`		|	下一个标签
 
 ### 跳转
 
@@ -111,7 +112,7 @@ Shortcut	|	Action
 
 Shortcut		|	Action
 ----------------|-----------
-`<M-s>`	|	保存并打开终端
+`<C-i>`	|	保存并打开终端
 `,` + `cc`	|	注释
 `<C-n>`	|	选中下一个相同单词，类似 vs code 中的`Ctrl` + `d`
 `,` + `m`	|	预览markdown

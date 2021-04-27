@@ -17,8 +17,9 @@ set autoread
 set lz
 
 noremap <Leader>p "0p
-vnoremap <M-y> "+y
-map <M-p> "+p
+
+" vnoremap <M-y> "+y
+" map <M-p> "+p
 
 if has('mouse')
   if has('gui_running') || (&term =~ 'xterm' && !has('mac'))
@@ -35,7 +36,7 @@ au FileType html,yaml,vim,json,proto set ts=2 sw=2 expandtab
 inoremap jk <ESC>
 set hlsearch
 set ignorecase
-nnoremap <silent> <C-l>  :<C-u>nohl<CR><C-l>
+nnoremap <silent> <Backspace>  :<C-u>nohl<CR><Backspace>
 
 inoremap <C-g> <C-o>
 
@@ -69,6 +70,7 @@ set undodir=~/.vim/undodir
 
 " quit
 
+" mac下干脆不用了
 nnoremap <M-q> :wqa<CR>
 nnoremap <Leader>v :wqa<CR>
 
@@ -324,13 +326,13 @@ set termguicolors
 " In your init.vim AFTER loading plugins
 lua require'bufferline'.setup()
 
-nnoremap <silent><M-l> :BufferLineCycleNext<CR>
-nnoremap <silent><M-h> :BufferLineCyclePrev<CR>
-inoremap <silent><M-l> <ESC>:BufferLineCycleNext<CR>
-inoremap <silent><M-h> <ESC>:BufferLineCyclePrev<CR>
+nnoremap <silent><C-l> :BufferLineCycleNext<CR>
+nnoremap <silent><C-h> :BufferLineCyclePrev<CR>
+inoremap <silent><C-l> <ESC>:BufferLineCycleNext<CR>
+inoremap <silent><C-h> <ESC>:BufferLineCyclePrev<CR>
 
-nnoremap <M-x> :call ExitTab()<CR>
-inoremap <M-x> <Esc> :call ExitTab()<CR>
+nnoremap <C-x> :call ExitTab()<CR>
+inoremap <C-x> <Esc> :call ExitTab()<CR>
 
 function! ExitTab()
   if len(getbufinfo({'buflisted':1})) > 1 |
@@ -365,9 +367,9 @@ vmap <Leader>t <Plug>(coc-translator-pv)
 
 " floaterm
 
-nnoremap <M-s> :w<CR>:FloatermToggle<CR>
-inoremap <M-s> <ESC>:w<CR>:FloatermToggle<CR>
-tnoremap <silent> <M-s> <C-\><C-n>:FloatermToggle<CR>
+nnoremap <C-i> :w<CR>:FloatermToggle<CR>
+inoremap <C-i> <ESC>:w<CR>:FloatermToggle<CR>
+tnoremap <silent> <C-i> <C-\><C-n>:FloatermToggle<CR>
 
 " motion
 
