@@ -8,6 +8,8 @@ IDE 打造计划，自用 neovim 配置
 
 ---
 
+![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-d.png)
+
 ![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-0.png)
 
 ![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-a.png)
