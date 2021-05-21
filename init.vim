@@ -39,7 +39,7 @@ xnoremap <Leader>e <ESC>
 nnoremap <silent> b :<C-u>nohl<CR>b
 
 " 退出快捷键
-nnoremap <Leader>q :wqa<CR>
+nnoremap <Leader>q :quita<CR>
 
 " 快速插入空行
 nnoremap <Leader>o o<ESC>
@@ -563,3 +563,6 @@ hi Defx_git_Staged guifg=#99c794
 
 " bufferline setup
 lua require'bufferline'.setup()
+
+" startify banner颜色
+highlight StartifyHeader  ctermfg=114
