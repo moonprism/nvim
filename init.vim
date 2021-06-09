@@ -44,6 +44,11 @@ nnoremap <Leader>q :quita<CR>
 " 快速插入空行
 nnoremap <Leader>o o<ESC>
 
+" 选中块
+nnoremap vib {jV}
+
+" 快速播放宏
+nnoremap ,a @a
 
 "----------------------------------------------------------------------
 " 文件设置
@@ -289,8 +294,8 @@ Plug 'junegunn/fzf.vim'
 " 搜索文件列表
 nnoremap <C-p> :Files <CR>
 " 搜索当前文档内容
-nnoremap <C-f> :Lines <CR>
-xnoremap <C-f> :<C-U><C-R>=printf("Lines %s", VisualText()) <CR><CR>
+nnoremap <C-c> :Lines <CR>
+xnoremap <C-c> :<C-U><C-R>=printf("Lines %s", VisualText()) <CR><CR>
 " 全局搜索（rg）
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
@@ -476,7 +481,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " buf前后跳转
 nnoremap <silent><C-l> :BufferLineCycleNext<CR>
-nnoremap <silent><C-h> :BufferLineCyclePrev<CR>
+nnoremap <silent><C-f> :BufferLineCyclePrev<CR>
 
 " 关闭buf
 nnoremap <C-x> :call ExitTab()<CR>
