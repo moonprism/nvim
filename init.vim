@@ -25,7 +25,7 @@ set hlsearch
 let mapleader="\<space>"
 
 " 系统复制选中文本
-vnoremap <Leader>y "+y
+noremap ,y "+y
 " 粘贴复制专用寄存器
 noremap <Leader>p "0p
 
@@ -139,8 +139,8 @@ endif
 "----------------------------------------------------------------------
 
 au FileType c,go set ts=4 sw=4
-au FileType php,javascript,css,vue set ts=4 sw=4 expandtab
-au FileType sh,html,yaml,vim,json,proto set ts=2 sw=2 expandtab
+au FileType html,php,javascript,css,vue set ts=4 sw=4 expandtab
+au FileType sh,yaml,vim,json,proto set ts=2 sw=2 expandtab
 
 
 "----------------------------------------------------------------------
@@ -294,8 +294,8 @@ Plug 'junegunn/fzf.vim'
 " 搜索文件列表
 nnoremap <C-p> :Files <CR>
 " 搜索当前文档内容
-nnoremap <C-c> :Lines <CR>
-xnoremap <C-c> :<C-U><C-R>=printf("Lines %s", VisualText()) <CR><CR>
+nnoremap <C-f> :Lines <CR>
+xnoremap <C-f> :<C-U><C-R>=printf("Lines %s", VisualText()) <CR><CR>
 " 全局搜索（rg）
 command! -bang -nargs=* Rg
       \ call fzf#vim#grep(
@@ -411,8 +411,8 @@ nmap gtp <Plug>(GitGutterPrevHunk)zz
 Plug 'voldikss/vim-floaterm'
 
 " 打开/关闭内部终端窗口
-nnoremap <silent> <C-s> :w<CR>:FloatermToggle<CR>
-tnoremap <silent> <C-s> <C-\><C-n>:FloatermToggle<CR>
+nnoremap <silent> <C-t> :w<CR>:FloatermToggle<CR>
+tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
 
 
 "----------------------------------------------------------------------
@@ -481,7 +481,7 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " buf前后跳转
 nnoremap <silent><C-l> :BufferLineCycleNext<CR>
-nnoremap <silent><C-f> :BufferLineCyclePrev<CR>
+nnoremap <silent><C-s> :BufferLineCyclePrev<CR>
 
 " 关闭buf
 nnoremap <C-x> :call ExitTab()<CR>
