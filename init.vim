@@ -39,7 +39,7 @@ xnoremap <Leader>e <ESC>
 nnoremap <silent> b :<C-u>nohl<CR>b
 
 " 退出快捷键
-nnoremap <Leader>q :quita<CR>
+nnoremap <Leader>q :xa<CR>
 
 " 快速插入空行
 nnoremap <Leader>o o<ESC>
