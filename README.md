@@ -6,6 +6,11 @@ IDE 打造计划，自用 neovim 配置
 
 * vim session: `~/.vim/sessions/{project_dir}.vim`
 
+```
+alias vi='nvim'
+alias vim="nvim -c ':call LoadSession()'"
+```
+
 ---
 
 ![](https://raw.githubusercontent.com/moonprism/cdn/master/image/nvim-d.png)

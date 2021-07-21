@@ -140,7 +140,7 @@ endif
 
 au FileType c,go set ts=4 sw=4
 au FileType html,php,javascript,css,vue set ts=4 sw=4 expandtab
-au FileType sh,yaml,vim,json,proto set ts=2 sw=2 expandtab
+au FileType sh,yaml,vim,json,proto,xml set ts=2 sw=2 expandtab
 
 
 "----------------------------------------------------------------------
