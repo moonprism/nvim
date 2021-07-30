@@ -142,33 +142,32 @@ au FileType c,go set ts=4 sw=4
 au FileType html,php,javascript,css,vue set ts=4 sw=4 expandtab
 au FileType sh,yaml,vim,json,proto,xml set ts=2 sw=2 expandtab
 
-au filetype php vnoremap <silent> <Leader>c :!awk 
-  \ -F"[=:]" '{
-  \ if (max<length($1))
-  \   max=length($1);
-  \ n1[NR]=$1;
-  \ n2[NR]=$0;
-  \ }END{
-  \ for(n=1; n<=NR; n++){
-  \   st=999;
-  \   ifs="";
-  \   split(FS, vfs, "");
-  \   for(c in vfs){
-  \     ist=index(n2[n], vfs[c]);
-  \     if (ist && ist<st) {
-  \       st=ist;
-  \       ifs=vfs[c];
-  \     }
-  \   }
-  \   if(ifs=="") {
-  \     print n2[n];continue;
-  \   }
-  \   len=max-length(n1[n]);
-  \   for(i=0; i<len; i++)
-  \     n1[n]=n1[n]" ";
-  \   print n1[n] ifs substr(n2[n], st+1);
-  \ }
-  \ }'<CR>
+
+"----------------------------------------------------------------------
+" 处理 Align key-value pairs
+"----------------------------------------------------------------------
+
+au filetype php vnoremap <silent> ,cf :!awk 
+    \ -F= '{
+    \ if (max<length($1))
+    \   max=length($1);
+    \ n1[NR]=$1;
+    \ n2[NR]=$0;
+    \ }END{
+    \ for(n=1; n<=NR; n++){
+    \   st=index(n2[n], "=");
+    \   if(st == 0) {
+    \     print n2[n];
+    \     continue;
+    \   }
+    \   len=max-length(n1[n]);
+    \   for(i=0; i<len; i++)
+    \     n1[n]=n1[n]" ";
+    \   print n1[n]"="substr(n2[n], st+1);
+    \ }
+    \ }'<CR>
+
+au filetype go nnoremap <silent> ,cf :!go fmt %<CR><CR>
 
 
 "----------------------------------------------------------------------
