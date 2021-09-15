@@ -25,18 +25,15 @@ set hlsearch
 let mapleader="\<space>"
 
 " 系统复制选中文本
-noremap ,y "+y
+noremap <Leader>c "+y
 " 粘贴复制专用寄存器
 noremap <Leader>p "0p
 
 " jkjkjk
 inoremap jk <ESC>
 
-" ?
-xnoremap <Leader>e <ESC>
-
-" 附加b关闭高亮搜索功能
-nnoremap <silent> b :<C-u>nohl<CR>b
+" 关闭高亮搜索
+nnoremap <silent> <Leader>d :<C-u>nohl<CR>b
 
 " 退出快捷键
 nnoremap <Leader>q :xa<CR>
@@ -48,7 +45,7 @@ nnoremap <Leader>o o<ESC>
 nnoremap vib {jV}
 
 " 快速播放宏
-nnoremap ,a @a
+nnoremap <Leader>a @a
 
 "----------------------------------------------------------------------
 " 文件设置
@@ -114,11 +111,10 @@ autocmd BufReadPost *
 " 窗口快捷键
 "----------------------------------------------------------------------
 
-nnoremap <silent> <Leader>w :wincmd w<CR>
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
+nnoremap <silent> <C-w>- :sp<CR>
+nnoremap <silent> <C-w>/ :vs<CR>
+" ...
+nnoremap <silent> <C-w>w :wincmd w<CR>
 
 
 "----------------------------------------------------------------------
@@ -147,7 +143,7 @@ au FileType sh,yaml,vim,json,proto,xml set ts=2 sw=2 expandtab
 " 处理 Align key-value pairs
 "----------------------------------------------------------------------
 
-au filetype php vnoremap <silent> ,cf :!awk 
+au filetype php vnoremap <silent> <Leader>= :!awk 
     \ -F= '{
     \ if (max<length($1))
     \   max=length($1);
@@ -167,7 +163,7 @@ au filetype php vnoremap <silent> ,cf :!awk
     \ }
     \ }'<CR>
 
-au filetype go nnoremap <silent> ,cf :!go fmt %<CR><CR>
+au filetype go nnoremap <silent> <Leader>= :!go fmt %<CR><CR>
 
 
 "----------------------------------------------------------------------
@@ -175,7 +171,7 @@ au filetype go nnoremap <silent> ,cf :!go fmt %<CR><CR>
 "----------------------------------------------------------------------
 
 " 数组定义简写
-au FileType go inoremap [[ []
+au FileType go inoremap <Leader>[ []
 " `j 补全
 au FileType go inoremap `j <ESC>^yiw$a`json:"<ESC>pbgul$a"`
 
@@ -202,7 +198,7 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
 
-" 修改文本的配对符号 ds(：删除括号 cs({：替换括号
+" 修改文本的配对符号 ds( 删除括号 cs({ 替换括号
 Plug 'tpope/vim-surround'
 
 " 自动匹配括号
@@ -215,7 +211,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 
 
 "----------------------------------------------------------------------
-" coc yyds
+" coc LSP
 "----------------------------------------------------------------------
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -239,8 +235,8 @@ nnoremap <silent> gti <Plug>(coc-implementation)
 nnoremap <Leader>r <Plug>(coc-rename)
 
 " coc-translator 翻译
-nmap ,t <Plug>(coc-translator-p)
-xmap ,t <Plug>(coc-translator-pv)
+nmap <Leader>t <Plug>(coc-translator-p)
+xmap <Leader>t <Plug>(coc-translator-pv)
 
 
 "----------------------------------------------------------------------
@@ -360,7 +356,7 @@ function! DefxStart()
 endfunction
 
 " 快捷键打开defx
-nnoremap <silent> <Leader>d :call DefxStart()<CR>
+nnoremap <silent> <Leader>x :call DefxStart()<CR>
 
 " 在关闭buffer时写入session
 autocmd BufLeave,BufWinLeave * nested call defx#call_action('add_session')
@@ -391,7 +387,7 @@ function! s:defx_my_settings() abort
         \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> sp
         \ defx#do_action('multi',[['drop','split']])
-  nnoremap <silent><buffer><expr> vsp
+  nnoremap <silent><buffer><expr> vs
         \ defx#do_action('multi',[['drop','vsplit']])
   nnoremap <silent><buffer><expr> .
         \ defx#do_action('toggle_ignored_files')
@@ -448,10 +444,9 @@ tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
 
 Plug 'easymotion/vim-easymotion'
 
-" ;前缀，;w：往后 ;b：往前 ;f/F前后搜索模式
-nmap ; <Plug>(easymotion-prefix)
-xmap ; <Plug>(easymotion-prefix)
-
+" <space>f 全局跳转 
+map  <Leader>f <Plug>(easymotion-bd-w)
+nmap <Leader>f <Plug>(easymotion-overwin-w)
 
 "----------------------------------------------------------------------
 " tagbar tag索引
@@ -460,7 +455,7 @@ xmap ; <Plug>(easymotion-prefix)
 Plug 'majutsushi/tagbar'
 
 " 打开并进入tagbar标签窗口 q退出
-nnoremap <silent> <Leader>t :TagbarToggle<CR>:wincmd l<CR>
+" nnoremap <silent> <Leader>t :TagbarToggle<CR>:wincmd l<CR>
 
 
 "----------------------------------------------------------------------
@@ -469,8 +464,8 @@ nnoremap <silent> <Leader>t :TagbarToggle<CR>:wincmd l<CR>
 
 Plug 'tyru/caw.vim'
 
-nmap ,c <Plug>(caw:prefix)
-xmap ,c <Plug>(caw:prefix)
+nmap <C-c> <Plug>(caw:prefix)
+xmap <C-c> <Plug>(caw:prefix)
 
 
 "----------------------------------------------------------------------
