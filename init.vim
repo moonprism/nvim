@@ -25,15 +25,12 @@ set hlsearch
 let mapleader="\<space>"
 
 " 系统复制选中文本
-noremap <Leader>c "+y
+noremap <Leader>y "+y
 " 粘贴复制专用寄存器
 noremap <Leader>p "0p
 
 " jkjkjk
 inoremap jk <ESC>
-
-" 关闭高亮搜索
-nnoremap <silent> <Leader>d :<C-u>nohl<CR>b
 
 " 退出快捷键
 nnoremap <Leader>q :xa<CR>
@@ -41,11 +38,12 @@ nnoremap <Leader>q :xa<CR>
 " 快速插入空行
 nnoremap <Leader>o o<ESC>
 
+" 保存 & 关闭高亮
+nnoremap <silent> <Leader>s :<C-u>nohl<CR>:w<CR>
+
 " 选中块
 nnoremap vib {jV}
 
-" 快速播放宏
-nnoremap <Leader>a @a
 
 "----------------------------------------------------------------------
 " 文件设置
@@ -97,8 +95,6 @@ function! LoadSession()
   endif
   let g:is_start_session = 1
 endfunction
-" 手动载入session
-nnoremap <silent> <Leader>s :call LoadSession()<CR>
 
 " 单文件打开恢复上一次光标所在位置
 autocmd BufReadPost *
@@ -113,8 +109,7 @@ autocmd BufReadPost *
 
 nnoremap <silent> <C-w>- :sp<CR>
 nnoremap <silent> <C-w>/ :vs<CR>
-" ...
-nnoremap <silent> <C-w>w :wincmd w<CR>
+nnoremap <silent> <Leader>w :wincmd w<CR>
 
 
 "----------------------------------------------------------------------
@@ -444,7 +439,7 @@ tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
 
 Plug 'easymotion/vim-easymotion'
 
-" <space>f 全局跳转 
+" <space>f 全局搜索
 map  <Leader>f <Plug>(easymotion-bd-w)
 nmap <Leader>f <Plug>(easymotion-overwin-w)
 
@@ -455,7 +450,7 @@ nmap <Leader>f <Plug>(easymotion-overwin-w)
 Plug 'majutsushi/tagbar'
 
 " 打开并进入tagbar标签窗口 q退出
-" nnoremap <silent> <Leader>t :TagbarToggle<CR>:wincmd l<CR>
+nnoremap <silent> <Leader>/ :TagbarToggle<CR>:wincmd l<CR>
 
 
 "----------------------------------------------------------------------
@@ -464,17 +459,17 @@ Plug 'majutsushi/tagbar'
 
 Plug 'tyru/caw.vim'
 
-nmap <C-c> <Plug>(caw:prefix)
-xmap <C-c> <Plug>(caw:prefix)
+nmap <Leader>c <Plug>(caw:hatpos:toggle)
+xmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 
 "----------------------------------------------------------------------
 " markdown预览
 "----------------------------------------------------------------------
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
-
-nnoremap <Leader>m <Plug>MarkdownPreview
+" Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+" 
+" nnoremap <Leader>v <Plug>MarkdownPreview
 
 
 "----------------------------------------------------------------------
