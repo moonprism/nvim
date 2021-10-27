@@ -44,6 +44,9 @@ nnoremap <silent> <Leader>s :<C-u>nohl<CR>:w<CR>
 " 选中块
 nnoremap vib {jV}
 
+" 快速播放宏qaq
+nnoremap <C-q> @a
+
 
 "----------------------------------------------------------------------
 " 文件设置
@@ -245,7 +248,7 @@ function! Random()
   return system("strings -n 1 < /dev/urandom | grep -o '[[:digit:]]'  | head -c1")
 endfunction
 
-let r = Random() % 4
+let r = Random() % 5
 if r == 0
   let g:startify_custom_header = [
       \ '   ⣿⣆⠱⣝⡵⣝⢅⠙⣿⢕⢕⢕⢕⢝⣥⢒⠅⣿⣿⣿⡿⣳⣌⠪⡪⣡⢑' ,
@@ -298,6 +301,17 @@ elseif r == 3
       \ '   ⠄⠄⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣭⣶⡞⠄⠄⠄⠄⠄',
       \ '   ⠄⠄⠐⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠄⠄⠄⠄⠄⠄',
       \ '   ⠄⠄⠄⠈⠻⣿⣿⣿⣿⣿⣿⣯⣿⣯⣿⣾⣿⣿⣿⣿⣿⡿⠋⠄⠄⠄⠄⠄⠄⠄',
+      \]
+elseif r == 4
+  let g:startify_custom_header = [
+      \ '　　       　∧,,　 ',
+      \ '　　　　ヾ ｀. ､`フ',
+      \ '　　　(,｀''´ヽ､､ﾂﾞ',
+      \ '　 (ヽｖ''　　　`''''ﾞつ',
+      \ '　　,ゝ　 ⌒`ｙ''''''´',
+      \ '　 （ (´＾ヽこつ',
+      \ '　　 ) )',
+      \ '　　(ノ​',
       \]
 endif
 
@@ -418,8 +432,8 @@ nmap gco <Plug>(GitGutterUndoHunk)
 " 预览变更
 nmap gs <Plug>(GitGutterPreviewHunk)
 " 跳转前/后git暂存区域
-nmap gtn <Plug>(GitGutterNextHunk)zz
-nmap gtp <Plug>(GitGutterPrevHunk)zz
+nmap <Leader>gn <Plug>(GitGutterNextHunk)zz
+nmap <Leader>gp <Plug>(GitGutterPrevHunk)zz
 
 
 "----------------------------------------------------------------------
@@ -587,4 +601,4 @@ hi Defx_git_Staged guifg=#99c794
 lua require'bufferline'.setup()
 
 " startify banner颜色
-highlight StartifyHeader  ctermfg=114
+" highlight StartifyHeader  ctermfg=114
