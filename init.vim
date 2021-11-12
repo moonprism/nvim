@@ -168,8 +168,6 @@ au filetype go nnoremap <silent> <Leader>= :!go fmt %<CR><CR>
 " golang特定
 "----------------------------------------------------------------------
 
-" 数组定义简写
-au FileType go inoremap <Leader>[ []
 " `j 补全
 au FileType go inoremap `j <ESC>^yiw$a`json:"<ESC>pbgul$a"`
 
@@ -224,13 +222,13 @@ let g:coc_global_extensions = [
       \]
 
 " 跳转定义
-nnoremap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd <Plug>(coc-definition)
 " 跳转引用
-nnoremap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
 " 跳转实现
-nnoremap <silent> gti <Plug>(coc-implementation)
+nmap <silent> gti <Plug>(coc-implementation)
 " 重命名
-nnoremap <Leader>r <Plug>(coc-rename)
+nmap <Leader>r <Plug>(coc-rename)
 
 " coc-translator 翻译
 nmap <Leader>t <Plug>(coc-translator-p)
@@ -535,7 +533,7 @@ Plug 'luochen1990/rainbow'
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-      \	'guifgs': ['SlateBlue2', 'brown2', 'gold2', 'RoyalBlue1'],
+      \	'guifgs': ['SlateBlue2', 'seagreen3', 'gold2', 'RoyalBlue1'],
       \}
 
 
