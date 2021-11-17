@@ -511,6 +511,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 " buf前后跳转
 nnoremap <silent><C-l> :BufferLineCycleNext<CR>
 nnoremap <silent><C-s> :BufferLineCyclePrev<CR>
+inoremap <silent><C-l> <C-o>:BufferLineCycleNext<CR>
+inoremap <silent><C-s> <C-o>:BufferLineCyclePrev<CR>
 
 " 关闭buf
 nnoremap <C-x> :call ExitTab()<CR>
