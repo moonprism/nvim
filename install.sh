@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 依赖 neovim0.5+|python3.6.1+
+# 依赖 neovim0.6+|python3.6.1+
 
 brew install ctags fzf
 

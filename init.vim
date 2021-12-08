@@ -560,7 +560,7 @@ set termguicolors
 
 " 设置defx格式
 call defx#custom#option('_', {
-      \ 'columns': 'mark:indent:git:icons:filename',
+      \ 'columns': 'mark:indent:git:space:icons:space:filename',
       \ 'winwidth': 38,
       \ 'split': 'vertical',
       \ 'direction': 'topleft',
