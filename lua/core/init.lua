@@ -1,31 +1,14 @@
-local pack = require("core.pack")
-
-vim.cmd[[colorscheme catppuccin]]
-
-require('lualine').setup {
-  options = {
-    theme = "catppuccin",
-    section_separators = { left = '', right = ''},
-    component_separators = { left = '|', right = '|'}
-  }
+-- options
+local options = {
+  mouse = "a",
+  number = true,
+  smartindent = true,
+  undofile = true,
 }
 
-local tree_cb = require"nvim-tree.config".nvim_tree_callback
-require('nvim-tree').setup {
-  view = {
-    width = 31,
-    mappings = {
-      list = {
-        {key = ".", cb = tree_cb("toggle_dotfiles")},
-        {key = "l", cb = tree_cb("edit")},
-        {key = "h", cb = tree_cb("close_node")},
-      }
-    }
-  },
-  filters = {
-    dotfiles = false,
-    custom = {".git"}
-  }
-}
+for name, value in pairs(options) do vim.o[name] = value end
 
+vim.api.nvim_command("autocmd FileType lua set ts=2 sw=2 expandtab")
+
+require('pack')
 require('keymap')
