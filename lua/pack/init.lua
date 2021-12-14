@@ -12,10 +12,9 @@ require('packer').startup(function()
   }
 
   use {
-    opt = true,
-    'nvim-lualine/lualine.nvim',
+    'windwp/windline.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true},
-    config = setup.lualine
+    config = setup.windline
   }
 
   use {
@@ -28,7 +27,6 @@ require('packer').startup(function()
   }
 
   use {
-    opt = true,
     'akinsho/bufferline.nvim',
     requires = 'kyazdani42/nvim-web-devicons',
     config = setup.bufferline
@@ -51,6 +49,14 @@ require('packer').startup(function()
 
   use "rhysd/accelerated-jk"
 
+  use "easymotion/vim-easymotion"
+
+  use {
+    "mhinz/vim-startify",
+    config = setup.startify
+  }
+
+  use 'jiangmiao/auto-pairs'
 
   -- use "tpope/vim-fugitive"
 

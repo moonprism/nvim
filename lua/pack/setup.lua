@@ -4,13 +4,8 @@ function setup.nord()
   vim.cmd [[colorscheme nord]]
 end
 
-function setup.lualine()
-  require("lualine").setup {
-    options = {
-      section_separators = { left = '', right = ''},
-      component_separators = { left = '|', right = '|'}
-    }
-  }
+function setup.windline()
+  require('wlsample.evil_line')
 end
 
 function setup.defx()
@@ -34,6 +29,11 @@ end
 
 function setup.treesitter()
   require("nvim-treesitter").setup{}
+end
+
+function setup.startify()
+  vim.g.startify_change_to_dir = 0
+  vim.g.startify_padding_left = 3
 end
 
 function setup.telescope()

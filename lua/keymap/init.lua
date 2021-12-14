@@ -1,5 +1,5 @@
 local plugin_map = {
-  ["n <space>x"] = ":Defx<CR>",
+  ["n <space>d"] = ":Defx<CR>",
 
   ["n j"] = "<Plug>(accelerated_jk_gj)",
   ["n k"] = "<Plug>(accelerated_jk_gk)",
@@ -17,6 +17,8 @@ local plugin_map = {
   ["n <C-p>"] = ":Telescope find_files theme=dropdown<CR>",
 
   ["n <space>z"] = ":tab split<CR>",
+  ["n <space>f"] = "<Plug>(easymotion-overwin-w)",
+  ["v <space>f"] = "<Plug>(easymotion-bd-w)",
 }
 
 for key, value in pairs(plugin_map) do
