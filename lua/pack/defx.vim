@@ -73,3 +73,5 @@ call defx#custom#column('git', 'indicators', {
       \ 'Deleted'   : 'x',
       \ 'Unknown'   : '?'
       \ })
+
+autocmd BufLeave,BufWinLeave * nested call defx#call_action('add_session')
