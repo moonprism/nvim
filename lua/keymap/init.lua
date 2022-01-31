@@ -1,13 +1,13 @@
 local plugin_map = {
-  ["n <space>d"] = ":Defx -session-file="..os.getenv("HOME").."/.vim/defx_session<CR>",
+  ["n <space>d"] = ":NvimTreeToggle<CR>",
 
   ["n j"] = "<Plug>(accelerated_jk_gj)",
   ["n k"] = "<Plug>(accelerated_jk_gk)",
 
   ["n <space>w"] = "<C-w>w",
-  ["i jk"] = "<ESC>",
-  ["n <space>q"] = ":xa<CR>",
-  ["n <space>s"] = ":<C-u>nohl<CR>:w<CR>",
+  ["i jk"]       = "<ESC>",
+  ["n <space>q"] = ":qa<CR>",
+  ["n <C-[>"]    = ":<C-u>nohl<CR>",
 
   ["n <space>o"] = "o<ESC>",
 
@@ -17,7 +17,9 @@ local plugin_map = {
   ["i <C-s>"] = "<C-o>:BufferLineCyclePrev<CR>",
   ["n <C-x>"] = ":call ExitTab()<CR>",
 
-  ["n <C-p>"] = ":Telescope find_files theme=dropdown<CR>",
+  ["n <C-p>"] = ":Telescope find_files<CR>",
+  ["n <C-g>"] = ":Telescope live_grep<CR>",
+  ["v <C-g>"] = ":Telescope grep_string<CR>",
 
   ["n <space>z"] = ":tab split<CR>",
   ["n <space>f"] = "<Plug>(easymotion-overwin-w)",
@@ -26,10 +28,22 @@ local plugin_map = {
   ["v <space>y"] = "\"+y",
   ["v <space>p"] = "\"0p",
 
-  ["n gs"] = ":Gitsign preview_hunk<CR>",
-  ["n gco"] = ":Gitsign reset_hunk<CR>",
+  ["n gs"]        = ":Gitsign preview_hunk<CR>",
+  ["n gco"]       = ":Gitsign reset_hunk<CR>",
   ["n <space>gn"] = ":Gitsign next_hunk<CR>",
   ["n <space>gp"] = ":Gitsign prev_hunk<CR>",
+
+  ["x ga"] = "<Plug>(EasyAlign)",
+  ["n ga"] = "<Plug>(EasyAlign)",
+
+  ["n gd"] = "<Plug>(coc-definition)",
+  ["n gr"] = "<Plug>(coc-references)",
+
+  ["n <space>c"] = "<Plug>(caw:hatpos:toggle)",
+  ["x <space>c"] = "<Plug>(caw:hatpos:toggle)",
+
+  ["n <C-q>"] = "<Plug>Translate",
+  ["x <C-q>"] = "<Plug>TranslateV",
 }
 
 for key, value in pairs(plugin_map) do

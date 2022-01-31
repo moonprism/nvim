@@ -4,11 +4,12 @@ local options = {
   number = true,
   smartindent = true,
   undofile = true,
+  tabstop = 4,
+  shiftwidth = 4,
 }
 
 for name, value in pairs(options) do vim.o[name] = value end
 
-vim.api.nvim_command("autocmd FileType lua set ts=2 sw=2 expandtab")
 vim.cmd 'source ~/.config/nvim/lua/core/init.vim'
 
 require('pack')

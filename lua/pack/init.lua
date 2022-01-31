@@ -7,23 +7,22 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use {
-	  "arcticicestudio/nord-vim",
-    config = setup.nord
+    "tomasr/molokai",
+    config = setup.theme
   }
 
   use {
     'windwp/windline.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    requires = 'kyazdani42/nvim-web-devicons',
     config = setup.windline
   }
 
   use {
-    "Shougo/defx.nvim",
+    'kyazdani42/nvim-tree.lua',
     requires = {
-      'kristijanhusak/defx-git',
-      'kristijanhusak/defx-icons'
+      'kyazdani42/nvim-web-devicons',
     },
-    config = setup.defx
+    config = setup.tree
   }
 
   use {
@@ -51,6 +50,10 @@ require('packer').startup(function()
 
   use "easymotion/vim-easymotion"
 
+  use 'tyru/caw.vim'
+
+  use "voldikss/vim-translator"
+
   use {
     "mhinz/vim-startify",
     config = setup.startify
@@ -58,11 +61,20 @@ require('packer').startup(function()
 
   use 'jiangmiao/auto-pairs'
 
-  -- use "tpope/vim-fugitive"
-
   use {
     'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     config = setup.telescope
+  }
+
+  use {
+    "akinsho/toggleterm.nvim",
+    config = setup.toggleterm
+  }
+
+  use {
+    "neoclide/coc.nvim",
+    branch = "release",
+    config = setup.coc
   }
 end)

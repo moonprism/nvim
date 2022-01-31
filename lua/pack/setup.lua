@@ -1,7 +1,10 @@
 local setup = {}
 
-function setup.nord()
-  vim.cmd [[colorscheme nord]]
+function setup.theme()
+  vim.cmd [[
+    colorscheme molokai
+    hi NonText guifg=bg
+  ]]
 end
 
 function setup.windline()
@@ -12,6 +15,46 @@ function setup.defx()
   vim.cmd 'source ~/.config/nvim/lua/pack/defx.vim'
 end
 
+function setup.tree()
+  vim.g.nvim_tree_icons = {
+    default = '',
+    symlink = '',
+    git = {
+      unstaged = "✗",
+      staged = "✓",
+      unmerged = "",
+      renamed = "➜",
+      untracked = "★",
+      deleted = "",
+      ignored = "◌"
+    },
+    folder = {
+      arrow_open = " ",
+      arrow_closed = " ",
+      default = "",
+      open = "",
+      empty = "",
+      empty_open = "",
+      symlink = "",
+      symlink_open = "",
+    }
+  }
+  local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+  require'nvim-tree'.setup {
+    view = {
+      width = 37,
+      mappings = {
+        list = {
+          { key = {"y"}, cb = tree_cb("copy") }
+        }
+      }
+    },
+    filters = {
+      custom = {".git"}
+    }
+  }
+end
+
 function setup.bufferline()
   vim.opt.termguicolors = true
   require("bufferline").setup{}
@@ -19,6 +62,13 @@ end
 
 function setup.gitsigns()
   require("gitsigns").setup {
+    signs = {
+      add          = {hl = 'GitGutterAdd'   , text = '│', numhl='GitGutterAddNr'   , linehl='GitGutterAddLn'},
+      change       = {hl = 'GitGutterChange', text = '│', numhl='GitGutterChangeNr', linehl='GitGutterChangeLn'},
+      delete       = {hl = 'GitGutterDelete', text = '_', numhl='GitGutterDeleteNr', linehl='GitGutterDeleteLn'},
+      topdelete    = {hl = 'GitGutterDelete', text = '‾', numhl='GitGutterDeleteNr', linehl='GitGutterDeleteLn'},
+      changedelete = {hl = 'GitGutterChange', text = '~', numhl='GitGutterChangeNr', linehl='GitGutterChangeLn'},
+    },
     current_line_blame = true,
   }
 end
@@ -41,11 +91,41 @@ function setup.telescope()
     defaults = {
       mappings = {
         i = {
-          ["<C-p>"] = require("telescope.actions").close,
+          ["<ESC>"] = require("telescope.actions").close,
+          ["<C-j>"] = require("telescope.actions").move_selection_next,
+          ["<C-k>"] = require("telescope.actions").move_selection_previous,
         }
+      }
+    },
+    pickers = {
+      find_files = {
+        theme = "dropdown",
+      },
+      live_grep = {
+        theme = "dropdown",
+      },
+      grep_string = {
+        theme = "dropdown",
       }
     }
   }
+end
+
+function setup.toggleterm()
+  require("toggleterm").setup{
+    open_mapping = [[<c-t>]],
+    direction = 'float',
+    close_on_exit = false,
+    float_opts = {
+      border = 'curved',
+      width = 110,
+      height = 28,
+    }
+  }
+end
+
+function setup.coc()
+  vim.g.coc_global_extensions = {"coc-go", "coc-lua"}
 end
 
 return setup
