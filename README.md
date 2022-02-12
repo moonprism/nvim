@@ -7,3 +7,11 @@ ln -s ${PWD}/* ~/.config/nvim
 ```
 
 包管理器：[packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+Arch:
+
+![](https://raw.githubusercontent.com/moonprism/cdn/master/nvim/arch.png)
+
+Macos:
+
+![](https://raw.githubusercontent.com/moonprism/cdn/master/nvim/macos.jpg)
