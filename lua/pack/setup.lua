@@ -1,20 +1,5 @@
 local setup = {}
 
-function setup.theme()
-  vim.cmd [[
-    colorscheme molokai
-    hi NonText guifg=bg
-  ]]
-end
-
-function setup.windline()
-  require('wlsample.evil_line')
-end
-
-function setup.defx()
-  vim.cmd 'source ~/.config/nvim/lua/pack/defx.vim'
-end
-
 function setup.tree()
   vim.g.nvim_tree_icons = {
     default = '',
@@ -42,12 +27,7 @@ function setup.tree()
   local tree_cb = require'nvim-tree.config'.nvim_tree_callback
   require'nvim-tree'.setup {
     view = {
-      width = 37,
-      mappings = {
-        list = {
-          { key = {"y"}, cb = tree_cb("copy") }
-        }
-      }
+      width = 37
     },
     filters = {
       custom = {".git"}
@@ -71,14 +51,6 @@ function setup.gitsigns()
     },
     current_line_blame = true,
   }
-end
-
-function setup.marks()
-  require("marks").setup{}
-end
-
-function setup.treesitter()
-  require("nvim-treesitter").setup{}
 end
 
 function setup.startify()
@@ -122,10 +94,6 @@ function setup.toggleterm()
       height = 28,
     }
   }
-end
-
-function setup.coc()
-  vim.g.coc_global_extensions = {"coc-go", "coc-lua"}
 end
 
 return setup
