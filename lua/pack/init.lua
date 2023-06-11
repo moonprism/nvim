@@ -13,51 +13,21 @@ vim.opt.rtp:prepend(lazypath)
 
 local setup = require("pack.setup")
 
+local pack_dir = vim.fn.stdpath("config") .. "/lua/pack"
+local fs = io.popen("find " .. pack_dir .. " -type f -printf '%f\n'")
+
+local list = {}
+for f in fs:lines() do
+  local mod_name = f:sub(0, -5)
+  if conf_name != "init" then
+    local conf = require("pack." .. conf_name)
+    for _, c in pairs(conf) do
+      list[#list+1] = c
+    end
+  end
+end
+
 require("lazy").setup({
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd[[colorscheme tokyonight-moon]]
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
-    event = "VeryLazy",
-    config = function()
-      require("lualine").setup {
-        options = { 
-          theme  = "horizon",
-          component_separators = { left = "", right = ""},
-          section_separators = { left = "", right = ""},
-        },
-        sections = {
-          lualine_a = {"mode"},
-          lualine_b = {"branch", "diff", "diagnostics"},
-          lualine_c = {"filename"},
-          lualine_x = {"fileformat", "encoding"},
-          lualine_y = {"progress"},
-          lualine_z = {"location"}
-        },
-      }
-    end,
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = "kyazdani42/nvim-web-devicons",
-    config = setup.tree,
-  },
-  {
-    "akinsho/bufferline.nvim",
-    dependencies = "kyazdani42/nvim-web-devicons",
-    config = setup.bufferline,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = setup.gitsigns,
-  },
   "easymotion/vim-easymotion",
   {
     "numToStr/Comment.nvim",

@@ -10,7 +10,8 @@ local options = {
 
 for name, value in pairs(options) do vim.o[name] = value end
 
-vim.cmd 'source ~/.config/nvim/lua/core/init.vim'
+local v_path = vim.fn.stdpath("config")
+-- print(v_path.."/lua/core/")
 
 require('pack')
 require('keymap')
