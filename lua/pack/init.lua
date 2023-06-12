@@ -11,15 +11,13 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-local setup = require("pack.setup")
-
-local pack_dir = vim.fn.stdpath("config") .. "/lua/pack"
-local fs = io.popen("find " .. pack_dir .. " -type f -printf '%f\n'")
+local the_dir = vim.fn.stdpath("config") .. "/lua/pack"
+local fs = io.popen("cd " .. the_dir .. "; find -type f")
 
 local list = {}
 for f in fs:lines() do
-  local mod_name = f:sub(0, -5)
-  if conf_name != "init" then
+  local conf_name = f:sub(3, -5):gsub("/", ".")
+  if conf_name ~= "init" then
     local conf = require("pack." .. conf_name)
     for _, c in pairs(conf) do
       list[#list+1] = c
@@ -27,30 +25,4 @@ for f in fs:lines() do
   end
 end
 
-require("lazy").setup({
-  "easymotion/vim-easymotion",
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end
-  },
-  {
-    "mhinz/vim-startify",
-    config = setup.startify
-  },
-  "rainbowhxch/accelerated-jk.nvim",
-  {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end
-  },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = setup.telescope
-  },
-  {
-    "akinsho/toggleterm.nvim",
-    config = setup.toggleterm
-  }
-})
+require("lazy").setup(list)
