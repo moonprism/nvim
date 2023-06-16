@@ -1,5 +1,7 @@
-local plugin_map = {
-  ["n <space>d"] = ":NvimTreeToggle<CR>",
+local keymaps = {
+  ["n <space>d"] = function()
+    require("nvim-tree.api").tree.toggle()
+  end,
 
   ["n j"] = "<Plug>(accelerated_jk_gj)",
   ["n k"] = "<Plug>(accelerated_jk_gk)",
@@ -15,7 +17,12 @@ local plugin_map = {
   ["n <C-s>"] = ":BufferLineCyclePrev<CR>",
   ["i <C-l>"] = "<C-o>:BufferLineCycleNext<CR>",
   ["i <C-s>"] = "<C-o>:BufferLineCyclePrev<CR>",
-  ["n <C-x>"] = ":call ExitTab()<CR>",
+
+  ["n <C-x>"] = function() 
+    local n = vim.fn.buffer_number()
+    vim.cmd.bprevious()
+    vim.cmd.bdelete(n)
+  end,
 
   ["n <C-p>"] = ":Telescope find_files<CR>",
   ["n <C-g>"] = ":Telescope live_grep<CR>",
@@ -46,6 +53,6 @@ local plugin_map = {
   ["x <C-q>"] = "<Plug>TranslateV",
 }
 
-for key, value in pairs(plugin_map) do
-  vim.api.nvim_set_keymap(string.sub(key, 0, 1), string.sub(key, 3), value, {silent = true})
+for k, v in pairs(keymaps) do
+  vim.keymap.set(k:sub(0, 1), k:sub(3), v, {silent = true})
 end
