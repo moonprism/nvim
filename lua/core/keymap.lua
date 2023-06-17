@@ -18,7 +18,7 @@ local keymaps = {
   ["i <C-l>"] = "<C-o>:BufferLineCycleNext<CR>",
   ["i <C-s>"] = "<C-o>:BufferLineCyclePrev<CR>",
 
-  ["n <C-x>"] = function() 
+  ["n <C-x>"] = function()
     local n = vim.fn.buffer_number()
     vim.cmd.bprevious()
     vim.cmd.bdelete(n)
@@ -28,7 +28,6 @@ local keymaps = {
   ["n <C-g>"] = ":Telescope live_grep<CR>",
   ["v <C-g>"] = ":Telescope grep_string<CR>",
 
-  ["n <space>z"] = ":tab split<CR>",
   ["n <space>f"] = "<Plug>(easymotion-overwin-w)",
   ["v <space>f"] = "<Plug>(easymotion-bd-w)",
 
@@ -37,20 +36,8 @@ local keymaps = {
 
   ["n gs"]        = ":Gitsign preview_hunk<CR>",
   ["n gco"]       = ":Gitsign reset_hunk<CR>",
-  ["n <space>gn"] = ":Gitsign next_hunk<CR>",
-  ["n <space>gp"] = ":Gitsign prev_hunk<CR>",
-
-  ["x ga"] = "<Plug>(EasyAlign)",
-  ["n ga"] = "<Plug>(EasyAlign)",
-
-  ["n gd"] = "<Plug>(coc-definition)",
-  ["n gr"] = "<Plug>(coc-references)",
-
-  ["n <space>c"] = "<Plug>(caw:hatpos:toggle)",
-  ["x <space>c"] = "<Plug>(caw:hatpos:toggle)",
-
-  ["n <C-q>"] = "<Plug>Translate",
-  ["x <C-q>"] = "<Plug>TranslateV",
+  ["n [g"] = ":Gitsign prev_hunk<CR>",
+  ["n ]g"] = ":Gitsign next_hunk<CR>",
 }
 
 for k, v in pairs(keymaps) do

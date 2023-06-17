@@ -43,3 +43,4 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 require("pack")
 require("core.keymap")
+require("lsp")

@@ -10,7 +10,7 @@ return {
           topdelete    = {hl = 'GitGutterDelete', text = '‾', numhl='GitGutterDeleteNr', linehl='GitGutterDeleteLn'},
           changedelete = {hl = 'GitGutterChange', text = '~', numhl='GitGutterChangeNr', linehl='GitGutterChangeLn'},
         },
-        current_line_blame = true,
+        -- current_line_blame = true,
       }
     end,
   },
