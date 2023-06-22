@@ -8,7 +8,6 @@ local keymaps = {
 
   ["n <space>w"] = "<C-w>w",
   ["i jk"]       = "<ESC>",
-  ["n <space>q"] = ":qa<CR>",
   ["n <C-[>"]    = ":<C-u>nohl<CR>",
 
   ["n <space>o"] = "o<ESC>",
@@ -34,10 +33,13 @@ local keymaps = {
   ["v <space>y"] = "\"+y",
   ["v <space>p"] = "\"0p",
 
-  ["n gs"]        = ":Gitsign preview_hunk<CR>",
-  ["n gco"]       = ":Gitsign reset_hunk<CR>",
-  ["n [g"] = ":Gitsign prev_hunk<CR>",
-  ["n ]g"] = ":Gitsign next_hunk<CR>",
+  ["n gs"]  = ":Gitsign preview_hunk<CR>",
+  ["n gco"] = ":Gitsign reset_hunk<CR>",
+  ["n [g"]  = ":Gitsign prev_hunk<CR>",
+  ["n ]g"]  = ":Gitsign next_hunk<CR>",
+
+  ["n ga"] = "<Plug>(EasyAlign)",
+  ["x ga"] = "<Plug>(EasyAlign)",
 }
 
 for k, v in pairs(keymaps) do

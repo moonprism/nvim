@@ -2,7 +2,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function() 
+    config = function()
       require("telescope").setup {
         defaults = {
           mappings = {
@@ -31,12 +31,12 @@ return {
     "akinsho/toggleterm.nvim",
     config = function()
       require("toggleterm").setup{
-        open_mapping = [[<c-t>]],
+        open_mapping = [[<c-e>]],
         direction = 'float',
         close_on_exit = false,
         float_opts = {
           border = 'curved',
-          width = 110,
+          width = 100,
           height = 28,
         }
       }

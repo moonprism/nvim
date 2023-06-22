@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     config = function()
       require("lualine").setup {
-        options = { 
+        options = {
           theme  = "horizon",
           component_separators = { left = "", right = ""},
           section_separators = { left = "", right = ""},

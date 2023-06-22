@@ -41,6 +41,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   command = "exec 'normal! g`\"'",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  command = "setlocal nonumber",
+})
+
 require("pack")
 require("core.keymap")
 require("lsp")
