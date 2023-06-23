@@ -49,3 +49,9 @@ local keymaps = {
 for k, v in pairs(keymaps) do
   vim.keymap.set(k:sub(0, 1), k:sub(3), v, {silent = true})
 end
+
+for i=1,9 do
+  vim.keymap.set("n", string.format("<space>%d", i), function ()
+    require("bufferline").go_to(i)
+  end, {silent = true})
+end

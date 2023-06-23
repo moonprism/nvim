@@ -9,6 +9,7 @@ return {
           theme  = "horizon",
           component_separators = { left = "", right = ""},
           section_separators = { left = "", right = ""},
+          disabled_filetypes = {"markdown"},
         },
         sections = {
           lualine_a = {"mode"},
