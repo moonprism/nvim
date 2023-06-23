@@ -40,6 +40,10 @@ local keymaps = {
 
   ["n ga"] = "<Plug>(EasyAlign)",
   ["x ga"] = "<Plug>(EasyAlign)",
+
+  ["n gl"] = function()
+    require("gitsigns").blame_line()
+  end,
 }
 
 for k, v in pairs(keymaps) do

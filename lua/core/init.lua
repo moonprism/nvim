@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "markdown",
-  command = "setlocal nonumber",
+  command = "setlocal nonumber foldcolumn=1",
 })
 
 require("pack")
