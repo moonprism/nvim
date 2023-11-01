@@ -3,14 +3,16 @@ local keymaps = {
     require("nvim-tree.api").tree.toggle()
   end,
 
-  ["n j"] = "<Plug>(accelerated_jk_gj)",
-  ["n k"] = "<Plug>(accelerated_jk_gk)",
-
-  ["n <space>w"] = "<C-w>w",
   ["i jk"]       = "<ESC>",
   ["n <C-[>"]    = ":<C-u>nohl<CR>",
 
   ["n <space>o"] = "o<ESC>",
+
+  ["n <Leader>w"] = "<cmd>wincmd w<cr>",
+  ["n <Leader>h"] = "<cmd>wincmd h<cr>",
+  ["n <Leader>j"] = "<cmd>wincmd j<cr>",
+  ["n <Leader>k"] = "<cmd>wincmd k<cr>",
+  ["n <Leader>l"] = "<cmd>wincmd l<cr>",
 
   ["n <C-l>"] = ":BufferLineCycleNext<CR>",
   ["n <C-s>"] = ":BufferLineCyclePrev<CR>",
@@ -23,7 +25,16 @@ local keymaps = {
     vim.cmd.bdelete(n)
   end,
 
-  ["n <C-p>"] = ":Telescope find_files<CR>",
+  ["n <Leader>sl"] = function()
+    require("persistence").load()
+  end,
+
+  ["n <leader>fe"] = function()
+    require("neo-tree.command").execute({ toggle = true })
+  end,
+
+  ["n <C-p>"] = "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files<cr>",
+
   ["n <C-g>"] = ":Telescope live_grep<CR>",
   ["v <C-g>"] = ":Telescope grep_string<CR>",
 

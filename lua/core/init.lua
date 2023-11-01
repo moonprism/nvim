@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 -- options
 local options = {
   mouse = "a",
@@ -15,7 +17,8 @@ local format = {
   go   = "sw=4",
   lua  = "sw=2 et",
   html = "sw=4 et",
-  js   = "sw=4 et",
+  php  = "sw=4 et",
+  javascript = "sw=4 et",
   css  = "sw=4 et",
   vue  = "sw=4 et",
   sh   = "sw=2 et",
@@ -29,12 +32,6 @@ for name, value in pairs(format) do
   })
 end
 
--- auto save
-vim.api.nvim_create_autocmd({"textchanged", "textchangedi"}, {
-  pattern = "*.*",
-  command = "silent write",
-})
-
 -- last position
 vim.api.nvim_create_autocmd("BufReadPost", {
   pattern = "*.*",
@@ -46,6 +43,24 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal nonumber foldcolumn=1",
 })
 
-require("pack")
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
+  spec = {
+    { import = "pack" },
+    { import = "pack.ui" },
+  }
+})
+
 require("core.keymap")
 require("lsp")

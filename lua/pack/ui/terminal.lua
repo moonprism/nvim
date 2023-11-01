@@ -8,6 +8,7 @@ return {
           mappings = {
             i = {
               ["<ESC>"] = require("telescope.actions").close,
+              ["<C-p>"] = require("telescope.actions").close,
               ["<C-j>"] = require("telescope.actions").move_selection_next,
               ["<C-k>"] = require("telescope.actions").move_selection_previous,
             }
@@ -31,7 +32,7 @@ return {
     "akinsho/toggleterm.nvim",
     config = function()
       require("toggleterm").setup{
-        open_mapping = [[<c-e>]],
+        open_mapping = [[<c-/>]],
         direction = 'float',
         close_on_exit = false,
         float_opts = {
