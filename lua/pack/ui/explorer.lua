@@ -19,10 +19,11 @@ return {
         width_preview = 25,
       },
       content = {
-        filter = function (fs_entry)
-          -- return not vim.startswith(fs_entry.name, ".")
+        filter = function(fs_entry)
           for _, v in pairs(filter_entries) do
-            if v == fs_entry.name then return false end
+            if v == fs_entry.name then
+              return false
+            end
           end
           return true
         end,
@@ -38,6 +39,6 @@ return {
           require("mini.files").open()
         end,
       },
-    }
-  }
+    },
+  },
 }

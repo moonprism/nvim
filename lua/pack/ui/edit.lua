@@ -15,7 +15,7 @@ return {
       exclude = {
         filetypes = disabled_filetypes,
       },
-    }
+    },
   },
   {
     "echasnovski/mini.indentscope",
