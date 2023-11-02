@@ -1,34 +1,43 @@
+local filter_entries = {
+  ".git",
+  "vendor",
+  "node_modules",
+  "composer.lock",
+  "package-lock.json",
+  "go.sum",
+}
+
 return {
   {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = "kyazdani42/nvim-web-devicons",
-    init = function()
-      vim.g.loaded_netrw = 1
-      vim.opt.termguicolors = true
-    end,
-    config = function ()
-      require'nvim-tree'.setup {
-        view = {
-          width = 36
-        },
-        filters = {
-          custom = {"^\\.git$"},
-        },
-      }
-    end,
-  },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
+    "echasnovski/mini.files",
+    event = "VeryLazy",
     opts = {
-      filesystem = {
-        follow_current_file = { enabled = true },
-      }
+      windows = {
+        preview = false,
+        width_focus = 40,
+        width_nofocus = 15,
+        width_preview = 25,
+      },
+      content = {
+        filter = function (fs_entry)
+          -- return not vim.startswith(fs_entry.name, ".")
+          for _, v in pairs(filter_entries) do
+            if v == fs_entry.name then return false end
+          end
+          return true
+        end,
+      },
+      mappings = {
+        go_in_plus = "l",
+      },
+    },
+    keys = {
+      {
+        "<leader>d",
+        function()
+          require("mini.files").open()
+        end,
+      },
     }
-  },
+  }
 }

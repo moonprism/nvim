@@ -33,15 +33,15 @@ for name, value in pairs(format) do
 end
 
 -- last position
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*.*",
-  command = "exec 'normal! g`\"'",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  command = "setlocal nonumber foldcolumn=1",
-})
+-- vim.api.nvim_create_autocmd("BufReadPost", {
+--   pattern = "*.*",
+--   command = "exec 'normal! g`\"'",
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "markdown",
+--   command = "setlocal nonumber foldcolumn=1",
+-- })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -55,11 +55,15 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
+
 require("lazy").setup({
   spec = {
     { import = "pack" },
     { import = "pack.ui" },
-  }
+  },
+  change_detection = {
+    enabled = false,
+  },
 })
 
 require("core.keymap")

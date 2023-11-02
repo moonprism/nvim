@@ -1,24 +1,16 @@
 return {
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup({
-        toggler = {
-          line = '<space>c',
-          block = '<space>c',
-        },
-        opleader = {
-          line = '<space>c',
-          block = '<space>b',
-        },
-      })
-    end,
+    'echasnovski/mini.comment',
+    event = "VeryLazy",
+    opts = {
+      mappings = {
+        comment_line = '<Leader>c',
+        comment_visual = '<Leader>c',
+      },
+    }
   },
   {
-    "windwp/nvim-autopairs",
-    config = function() require("nvim-autopairs").setup {} end,
+    "echasnovski/mini.pairs",
+    opts = {},
   },
-  {
-    "junegunn/vim-easy-align",
-  }
 }
