@@ -1,16 +1,16 @@
-return{
+return {
   {
     "akinsho/toggleterm.nvim",
-    config = function()
-      require("toggleterm").setup{
-        direction = 'float',
-        close_on_exit = false,
-        float_opts = {
-          border = 'curved',
-          width = 100,
-          height = 28,
-        }
-      }
-    end,
+    event = "VeryLazy",
+    opts = {
+      open_mapping = [[<c-_>]],
+      direction = 'float',
+      close_on_exit = true,
+      float_opts = {
+        border = 'single',
+        width = 100,
+        height = 30,
+      },
+    },
   },
 }
