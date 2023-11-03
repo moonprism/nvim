@@ -1,6 +1,8 @@
 local keymaps = {
   ["i jk"] = "<ESC>",
-  ["n <C-[>"] = ":<C-u>nohl<CR>",
+
+  ["n <ESC>"] = "<Cmd>nohl<CR><ESC>",
+  ["i <ESC>"] = "<Cmd>nohl<CR><ESC>",
 
   ["n <Leader>w"] = "<Cmd>wincmd w<CR>",
   ["n <Leader>h"] = "<Cmd>wincmd h<CR>",
@@ -9,7 +11,7 @@ local keymaps = {
   ["n <Leader>l"] = "<Cmd>wincmd l<CR>",
 
   ["v <Leader>y"] = '"+y',
-  ["v <Leader>p"] = '"0p',
+  ["n <Leader>p"] = '"0p',
 }
 
 for k, v in pairs(keymaps) do

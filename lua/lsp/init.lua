@@ -62,6 +62,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       require('fzf-lua').lsp_references()
     end, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<Leader>r', vim.lsp.buf.rename, opts)
     vim.keymap.set('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set('n', '<Leader>wl', function()
