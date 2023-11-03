@@ -37,8 +37,29 @@ return {
         "<Cmd>Telescope find_files find_command=rg,--ignore,-.,--files,-g,!**/.git/*<CR>",
         desc = "rg Files",
       },
-      { "<C-g>", "<Cmd>Telescope live_grep<CR>", desc = "rg String" },
-      { "<C-g>", mode = { "x" }, "<Cmd>Telescope grep_string<CR>", desc = "rg String" },
+      {
+        "<C-g>",
+        "<Cmd>Telescope live_grep<CR>",
+      },
+      {
+        "<C-g>",
+        mode = { "x" },
+        "<Cmd>Telescope grep_string<CR>",
+      },
+    },
+  },
+  -- next fzf-lua
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      winopts = {
+        preview = {
+          layout   = 'verticl',
+          vertical = 'down:70%',
+        },
+      },
     },
   },
 }

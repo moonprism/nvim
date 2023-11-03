@@ -7,7 +7,6 @@ return {
       vim.cmd([[colorscheme tokyonight-moon]])
     end,
   },
-  -- lazy.nvim
   {
     "folke/noice.nvim",
     event = "VeryLazy",

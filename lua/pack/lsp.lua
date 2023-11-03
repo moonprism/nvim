@@ -1,15 +1,12 @@
 return {
-  {
-    "neovim/nvim-lspconfig",
-  },
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-  },
+  "neovim/nvim-lspconfig",
+  "williamboman/mason.nvim",
+
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+
   "saadparwaiz1/cmp_luasnip",
   "L3MON4D3/LuaSnip",
 }
