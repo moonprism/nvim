@@ -36,12 +36,6 @@ for name, value in pairs(format) do
   })
 end
 
--- last position
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*.*",
-  command = "exec 'normal! g`\"'",
-})
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -61,7 +55,7 @@ require("lazy").setup({
     { import = "pack.ui" },
   },
   change_detection = {
-    enabled = false,
+    enabled = true,
   },
 })
 

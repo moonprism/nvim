@@ -5,6 +5,7 @@ local filter_entries = {
   "composer.lock",
   "package-lock.json",
   "go.sum",
+  ".mod"
 }
 
 return {
